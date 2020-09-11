@@ -18,7 +18,7 @@
 
   * [Contributing](#Contributing)
 
-  * [Technology](#Technology
+  * [Technology](#Technology)
   
   ## Description
   
@@ -34,6 +34,6 @@
   MIT license.
   
   ## Contributing 
-  Fork this repository. Create a branch: git checkout -b <branch_name>. Add: git add . Make your changes and commit them: git       commit -m '<commit_message>' Push to the original branch: git push origin <branch_name> Create the pull request.
+  Fork this repository. Create a branch: git checkout -b <branch_name>. Add: git add . Make your changes and commit them: git commit -m '<commit_message>' Push to the original branch: git push origin <branch_name> Create the pull request.
   
   ## Technology
