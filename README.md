@@ -28,10 +28,10 @@ Coming soon ...
   Clone this repo to your local machine using https://github.com/llaraama/Buy-Spy.git
   
   ## Credits
-  Laura Lara: https://github.com/llaraama
-  Jessica Moran: https://github.com/JessMoran
-  Brenden Forbis: https://github.com/brendog95
-  Jonathan de los santos: https://github.com/jdelossantos47
+  * Laura Lara: https://github.com/llaraama
+  * Jessica Moran: https://github.com/JessMoran
+  * Brenden Forbis: https://github.com/brendog95
+  * Jonathan de los santos: https://github.com/jdelossantos47
   
   ## License 
   MIT license.
