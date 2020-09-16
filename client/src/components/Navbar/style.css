@@ -1,0 +1,11 @@
+* {
+    font-family: 'Baloo 2', cursive;
+}
+
+.text-primary {
+    color: #F73D51;
+}
+
+.bg-primary {
+    background: #F73D51;
+}
