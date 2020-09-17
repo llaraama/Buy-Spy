@@ -14,7 +14,7 @@ function Card() {
                 </div>
                 <img className="w-full" src="/lap.png" alt="Sunset in the mountains"/>
                 <div className="px-6 p-4 flex justify-center">
-                    <img className="w-24" src="walmart.png" alt="amazon-logo"/>
+                    <img className="w-40" src="walmart.png" alt="amazon-logo"/>
                 </div>
                 <div className="px-6 pt-4">
                     <ul className="text-left">

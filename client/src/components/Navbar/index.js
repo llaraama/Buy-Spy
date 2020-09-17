@@ -42,8 +42,8 @@ function Navbar() {
             </ul>
             <div className="w-full block flex-grow lg:flex lg:justify-end lg:w-auto">
                 <div className="text-sm">
-                    <Link to="#responsive-header"
-                          className="mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-1">
+                    <Link to="/my-favorites"
+                          className={location.pathname === "/my-favorites" ? "nav-link active" : "mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-1"}>
                         My Favorites
                     </Link>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 mr-4 icon-heart inline">
