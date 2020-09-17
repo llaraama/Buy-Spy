@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "../../components/Menu";
-import Card from "../Card";
+import AmazonCard from "../AmazonCard";
+import WalmartCard from "../WalmartCard";
 
 function Cards() {
     return (
@@ -9,10 +10,10 @@ function Cards() {
             <Menu/>
             <main className="mt-5">
                 <div className="flex flex-wrap justify-center">
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
+                    <AmazonCard/>
+                    <WalmartCard/>
+                    <AmazonCard/>
+                    <WalmartCard/>
                 </div>
             </main>
         </div>
