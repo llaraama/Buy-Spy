@@ -1,18 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Cards from "./components/Cards";
-import Footer from "./components/Footer";
+import Hero from "./pages/Hero";
+import Cards from "./pages/Cards";
+import "./style.css";
 
 function App() {
     return (
         <Router>
             <div>
                 <Navbar />
-                <Hero />
-                <Cards />
-                <Footer />
+                <Route exact path="/items" component={Cards} />
+                <Route exact path="/" component={Hero} />
             </div>
         </Router>
     );

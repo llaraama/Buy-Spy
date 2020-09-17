@@ -1,0 +1,29 @@
+* {
+    font-family: 'Baloo 2', cursive;
+}
+
+.text-primary {
+    color: #F73D51;
+}
+
+.bg-primary {
+    background: #F73D51;
+}
+
+.text-black {
+    color: #3f3d56 !important;
+}
+
+.nav-link {
+    color: #F73D51;
+}
+
+.nav-link:hover {
+    color: #F73D51;
+    background: #fff;
+}
+
+.active {
+    color: #F73D51;
+    text-decoration: underline;
+}
