@@ -7,10 +7,6 @@ function Card() {
             <div className="px-5 pt-5">
                 <div className=" flex justify-end">
                     <i className="far fa-heart pointer"></i>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart pointer">
-                        <path fill="#F73D51"
-                              d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z"></path>
-                    </svg>
                 </div>
                 <img className="w-full" src="/lap.png" alt="Sunset in the mountains"/>
                 <div className="px-6 p-4 flex justify-center mt-4">
