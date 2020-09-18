@@ -35,10 +35,6 @@ function Navbar() {
                     <Link className={location.pathname === "/keyboard" ? "nav-link active" : "nav-link"}
                           to="/keyboard">Keyboard</Link>
                 </li>
-                <li className="mr-6">
-                    <Link className={location.pathname === "/accesories" ? "nav-link active" : "nav-link"}
-                          to="/accesories">Accesories</Link>
-                </li>
             </ul>
             <div className="w-full block flex-grow lg:flex lg:justify-end lg:w-auto">
                 <div className="text-sm">
