@@ -35,3 +35,27 @@ db.Inventory
     console.error(err);
     process.exit(1);
   });
+
+  // ***********authentication start to the username and password section of the app
+    // demo code 
+
+    const userSeed = [
+      {
+        username:"llaraama3",
+        password:"*****"
+      }
+    ];
+
+
+
+    db.User
+      .remove({})
+      .then(() => db.User.collection.insertMany(userSeed))
+      .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+      })
+      .catch(err => {
+        console.error(err);
+        process.exit(1);
+      });
