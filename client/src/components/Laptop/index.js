@@ -3,18 +3,21 @@ import API from "../../utils/API";
 import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
+import TargetCard from "../../pages/TargetCard";
 
 class Laptop extends Component {
     state = {
         results: [],
         amazonResults: [],
-        favs: []
+        favs: [],
+        targetResults: []
     };
 
     // When this component mounts, search for the item "laptop"
     componentDidMount() {
         this.searchItems("laptop");
         this.searchAmazon("laptop");
+        this.targetSearchItems("laptop");
     }
 
     searchItems = query => {
@@ -55,6 +58,27 @@ class Laptop extends Component {
             });
     }
 
+    targetSearchItems = query => {
+        API.targetSearchItems(query)
+            .then(res => this.setState({targetResults: res.data.products}))
+            .then(this.getImage)
+            .catch(err => console.log(err));
+    };
+
+    getImage = () => {
+        const newData = this.state.targetResults.map(item => {
+            let images = item.images
+            images.map (image => {
+                let base = image.base_url
+                let guest = image.primary
+                let url = base + guest
+
+                item.targetImages = url
+            })
+            return item
+        })
+        this.setState({targetResults: newData})
+    }
 
     render() {
         return (
@@ -77,6 +101,17 @@ class Laptop extends Component {
                         {this.state.amazonResults.map(item => {
                             return( 
                                 <AmazonCard amazonResults= {item} key={item.asin} addFavorites={this.props.addFavorites}/>
+                            )
+                        })}
+                    </div>
+                    <div className="flex flex-wrap justify-center">
+                        {this.state.targetResults.map(item => {
+                            return (
+                                <TargetCard
+                                    results={item}
+                                    key={item.tcin}
+                                    addFavorites={this.props.addFavorites}
+                                />
                             )
                         })}
                     </div>

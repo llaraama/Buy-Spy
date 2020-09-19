@@ -12,8 +12,6 @@ import "./style.css";
 
 class App extends Component {
 
-
-    
     state = {
         favorites: 0
     };
@@ -63,7 +61,5 @@ class App extends Component {
         );
     }
 }
-
-
 
 export default App;
