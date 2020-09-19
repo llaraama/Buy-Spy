@@ -33,7 +33,7 @@ class WalmartCard extends Component {
                 </div>
                 <div className="flex justify-end">
                     <div className="bg-primary p-2 w-1/4 text-center rounded-tl-lg">
-                        <a className="text-white" href="#">
+                        <a className="text-white" href={this.props.results.productUrl}>
                             Buy it!
                         </a>
                     </div>
