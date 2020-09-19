@@ -28,7 +28,6 @@ class Keyboard extends Component {
             .catch(err => console.log(err));
     };
 
-
     render() {
         return (
             <div className="text-center mb-32">
@@ -49,7 +48,6 @@ class Keyboard extends Component {
                             )
                         })}
                     </div>
-                    
                 </main>
             </div>
         )

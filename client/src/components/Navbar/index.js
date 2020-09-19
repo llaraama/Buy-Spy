@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function Navbar() {
+function Navbar (props) {
 
     const location = useLocation();
 
@@ -35,10 +35,6 @@ function Navbar() {
                     <Link className={location.pathname === "/keyboard" ? "nav-link active" : "nav-link"}
                           to="/keyboard">Keyboard</Link>
                 </li>
-                <li className="mr-6">
-                    <Link className={location.pathname === "/accesories" ? "nav-link active" : "nav-link"}
-                          to="/accesories">Accesories</Link>
-                </li>
             </ul>
             <div className="w-full block flex-grow lg:flex lg:justify-end lg:w-auto">
                 <div className="text-sm">
@@ -46,10 +42,7 @@ function Navbar() {
                           className={location.pathname === "/my-favorites" ? "nav-link active" : "mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-1"}>
                         My Favorites
                     </Link>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 mr-4 icon-heart inline">
-                        <path fill="#F73D51"
-                              d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z"></path>
-                    </svg>
+                    <i className="fas fa-heart text-primary text-md"><span>{props.favorites}</span></i>
                 </div>
             </div>
         </nav>
