@@ -27,10 +27,9 @@ class Keyboard extends Component {
                 <Menu/>
                 <main className="mt-5">
                     <div className="flex flex-wrap justify-center">
-                        {console.log(this.state.results)}
                         {this.state.results.map(item => {
                             return (
-                                <WalmartCard results={item}/>
+                                <WalmartCard results={item} key={item.itemId} addFavorites={this.props.addFavorites}/>
                             )
                         })}
                     </div>
