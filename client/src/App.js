@@ -6,6 +6,7 @@ import Laptop from "./components/Laptop";
 import Mouse from "./components/Mouse";
 import Keyboard from "./components/Keyboard";
 import Hero from "./pages/Hero";
+import Login from "./pages/Login";
 import Favorites from "./pages/Favorites";
 import "./style.css";
 
@@ -19,6 +20,7 @@ function App() {
                 <Route exact path="/mouse" component={Mouse} />
                 <Route exact path="/keyboard" component={Keyboard} />
                 <Route exact path="/my-favorites" component={Favorites} />
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/" component={Hero} />
             </div>
         </Router>
