@@ -30,9 +30,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f347e93-c5be-4fae-9a3e-c36127dca3a9" name="Default Changelist" comment="">
+    <list default="true" id="4b8060c0-ab9c-47d8-b301-c9de429bb07c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Desk/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Desk/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Keyboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Keyboard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Laptop/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Laptop/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Mouse/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Mouse/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Favorites/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Favorites/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/WalmartCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/WalmartCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,14 +52,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/pages" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/pages" />
-    </key>
-  </component>
   <component name="TaskManager">
     <servers />
   </component>
@@ -65,5 +66,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="355" y="150" width="730" height="622" key="find.popup" timestamp="1600488407346">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="355" y="150" width="730" height="622" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1600488407346" />
   </component>
 </project>

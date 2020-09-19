@@ -29,7 +29,7 @@ class Laptop extends Component {
                     <div className="flex flex-wrap justify-center">
                         {this.state.results.map(item => {
                             return (
-                                <WalmartCard results={item}/>
+                                <WalmartCard results={item} key={item.itemId} addFavorites={this.props.addFavorites}/>
                             )
                         })}
                         <AmazonCard/>
