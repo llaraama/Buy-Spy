@@ -44,7 +44,7 @@ class Keyboard extends Component {
                     <div className="flex flex-wrap justify-center">
                         {this.state.amazonResults.map(item => {
                             return( 
-                                <AmazonCard amazonResults= {item} key={item.ASIN} addFavorites={this.props.addFavorites}/>
+                                <AmazonCard amazonResults= {item} key={item.asin} addFavorites={this.props.addFavorites}/>
                             )
                         })}
                     </div>

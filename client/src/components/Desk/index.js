@@ -7,16 +7,24 @@ import AmazonCard from "../../pages/AmazonCard";
 class Desk extends Component {
     state = {
         results: [],
+        amazonResults: [],
     };
 
     // When this component mounts, search for the item "desk"
     componentDidMount() {
         this.searchItems("desk");
+        this.searchAmazon("desk");
     }
 
     searchItems = query => {
         API.searchItems(query)
             .then(res => this.setState({results: res.data.items}))
+            .catch(err => console.log(err));
+    };
+
+    searchAmazon = keyword => {
+        API.searchAmazon(keyword)
+            .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
 
@@ -33,7 +41,13 @@ class Desk extends Component {
                             )
                         })}
                     </div>
-                    <AmazonCard/>
+                    <div className="flex flex-wrap justify-center">
+                        {this.state.amazonResults.map(item => {
+                            return( 
+                                <AmazonCard amazonResults= {item} key={item.asin} addFavorites={this.props.addFavorites}/>
+                            )
+                        })}
+                    </div>
                 </main>
             </div>
         )

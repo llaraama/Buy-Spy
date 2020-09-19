@@ -7,16 +7,24 @@ import AmazonCard from "../../pages/AmazonCard";
 class Mouse extends Component {
     state = {
         results: [],
+        amazonResults: [],
     };
 
     // When this component mounts, search for the item "mouse"
     componentDidMount() {
         this.searchItems("mouse");
+        this.searchAmazon("computermouse");
     }
 
     searchItems = query => {
         API.searchItems(query)
             .then(res => this.setState({results: res.data.items}))
+            .catch(err => console.log(err));
+    };
+
+    searchAmazon = keyword => {
+        API.searchAmazon(keyword)
+            .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
 
@@ -32,7 +40,13 @@ class Mouse extends Component {
                                 <WalmartCard results={item} key={item.itemId} addFavorites={this.props.addFavorites}/>
                             )
                         })}
-                        <AmazonCard/>
+                    </div>
+                    <div className="flex flex-wrap justify-center">
+                        {this.state.amazonResults.map(item => {
+                            return( 
+                                <AmazonCard amazonResults= {item} key={item.asin} addFavorites={this.props.addFavorites}/>
+                            )
+                        })}
                     </div>
                 </main>
             </div>

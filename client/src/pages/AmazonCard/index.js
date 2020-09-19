@@ -17,7 +17,7 @@ class AmazonCard extends Component {
                 key={this.props.amazonResults.ASIN}>
                 <div className="px-5 pt-5">
                     <div className=" flex justify-end"
-                         onClick={() => this.props.addFavorites(this.props.amazonResults.ASIN)}>
+                         onClick={() => this.props.addFavorites(this.props.amazonResults.asin)}>
                         <i id="heart" onClick={this.changeToActive} className={this.state.active ? "far fa-heart cursor-pointer activeIcon" : "far fa-heart cursor-pointer"}></i>
                     </div>
                     <img className="w-full" src={this.props.amazonResults.imageUrl} alt="Sunset in the mountains"/>
