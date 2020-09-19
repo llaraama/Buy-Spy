@@ -7,16 +7,24 @@ import AmazonCard from "../../pages/AmazonCard";
 class Keyboard extends Component {
     state = {
         results: [],
+        amazonResults: [],
     };
 
     // When this component mounts, search for the item "keyboard"
     componentDidMount() {
         this.searchItems("keyboard");
+        this.searchAmazon("computerkeyboard");
     }
 
     searchItems = query => {
         API.searchItems(query)
             .then(res => this.setState({results: res.data.items}))
+            .catch(err => console.log(err));
+    };
+
+    searchAmazon = keyword => {
+        API.searchAmazon(keyword)
+            .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
 
@@ -33,7 +41,13 @@ class Keyboard extends Component {
                             )
                         })}
                     </div>
-                    <AmazonCard/>
+                    <div className="flex flex-wrap justify-center">
+                        {this.state.amazonResults.map(item => {
+                            return( 
+                                <AmazonCard amazonResults= {item} key={item.ASIN} addFavorites={this.props.addFavorites}/>
+                            )
+                        })}
+                    </div>
                 </main>
             </div>
         )
