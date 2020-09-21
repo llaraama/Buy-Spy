@@ -12,6 +12,8 @@ import "./style.css";
 
 class App extends Component {
 
+
+    
     state = {
         favorites: 0
     };
@@ -49,6 +51,7 @@ class App extends Component {
                             <Keyboard addFavorites={this.addFavorites}/>
                         )}
                     />
+
                     <Route exact path="/my-favorites" component={Favorites}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/" component={Hero}/>
@@ -57,5 +60,7 @@ class App extends Component {
         );
     }
 }
+
+
 
 export default App;
