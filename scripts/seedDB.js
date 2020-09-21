@@ -3,30 +3,30 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactinventory"
+  "mongodb://localhost/favorites"
 );
 
-const inventorySeed = [
+const favoritesSeed = [
   {
-    itemname: "desk",
-    price: "$120",
-    urlsite:
-      "wwww.google.com",
-    category: "furniture"
+    itemId:"1515831",
+    image:"none",
+    name:"standup desk",
+    salePrice:"$400",
+    productUrl:"www.walmart.com",
   },
   {
-    itemname: "laptop stand",
-    price: "$30",
-    urlsite:
-      "wwww.amazon.com",
-    category: "accessories"
+    itemId:"156151",
+    image:"none",
+    name:"Macbook",
+    salePrice:"$1099",
+    productUrl:"www.target.com",
   
   }
 ];
 
-db.Inventory
+db.Favorites
   .remove({})
-  .then(() => db.Inventory.collection.insertMany(inventorySeed))
+  .then(() => db.Favorites.collection.insertMany(favoritesSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

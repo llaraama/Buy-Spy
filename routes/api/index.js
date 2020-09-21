@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const inventoryRoutes = require("./inventory");
+const favoritesRoutes = require("./favorites");
 
 
-router.use("/inventory", inventoryRoutes);
+router.use("/favorites", favoritesRoutes);
 
 module.exports = router;
