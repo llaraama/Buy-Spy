@@ -8,6 +8,7 @@ class Keyboard extends Component {
     state = {
         results: [],
         amazonResults: [],
+        favs:[]
     };
 
     // When this component mounts, search for the item "keyboard"
@@ -28,6 +29,34 @@ class Keyboard extends Component {
             .catch(err => console.log(err));
     };
 
+    addFavoriteData = id => {
+
+        console.log(`Clicked: ${id}`)
+
+        let foundFav = this.state.results.filter(item => {
+            // logic to match item ID
+            return item.itemId == id;
+        });
+
+        console.log("***********");
+        console.log(foundFav);
+
+        // update State of FAVS array
+        // this.setState({ favs: foundFav });
+
+        // send OBJECT to backend route (server.js)
+        API.saveFavorites(foundFav)
+            .then(res => {
+                console.log("Item Saved");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+
+
     render() {
         return (
             <div className="text-center mb-32">
@@ -37,8 +66,12 @@ class Keyboard extends Component {
                     <div className="flex flex-wrap justify-center">
                         {this.state.results.map(item => {
                             return (
-                                <WalmartCard results={item} key={item.itemId} addFavorites={this.props.addFavorites}/>
-                            )
+                                <WalmartCard          
+                                results={item} 
+                                key={item.itemId} 
+                                addFavorites={this.props.addFavorites}
+                                addFavoriteData={this.addFavoriteData}/>
+                        )
                         })}
                     </div>
                     <div className="flex flex-wrap justify-center">
