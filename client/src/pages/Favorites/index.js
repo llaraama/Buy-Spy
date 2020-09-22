@@ -3,7 +3,11 @@ import WalmartCard from "../WalmartCard"
 
 
 function Favorites() {
+   return(
+    <div>
    
+</div>
+   )
 
 
   
