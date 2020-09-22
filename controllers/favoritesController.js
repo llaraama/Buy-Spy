@@ -18,7 +18,7 @@ module.exports={
         // Create something here 
         let tempObj = {
           itemId: req.body[0].itemId,
-          image: req.body[0].mediumImage,
+          image: req.body[0].largeImage,
           name: req.body[0].name,
           salePrice: req.body[0].salePrice,
           productUrl: req.body[0].productUrl

@@ -11,16 +11,8 @@ const favoritesSeed = [
     itemId:"1515831",
     image:"none",
     name:"standup desk",
-    salePrice:"$400",
+    salePrice:"400",
     productUrl:"www.walmart.com",
-  },
-  {
-    itemId:"156151",
-    image:"none",
-    name:"Macbook",
-    salePrice:"$1099",
-    productUrl:"www.target.com",
-  
   }
 ];
 
