@@ -24,5 +24,13 @@ export default {
                 "marketplace":"US"
             },
         });
+    },
+
+    saveFavorites: function (favoritesData) {
+        return axios.post("/api/favorites", favoritesData)
+    },
+
+    getFavorites: function() {
+        return axios.get("api/favorites");
     }
 }
