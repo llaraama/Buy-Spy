@@ -17,19 +17,20 @@ class AmazonCard extends Component {
                 key={this.props.amazonResults.ASIN}>
                 <div className="px-5 pt-5">
                     <div className=" flex justify-end"
-                         onClick={() => this.props.addFavorites(this.props.amazonResults.ASIN)}>
-                        <i id="heart" 
-                        // onClick={this.changeToActive} 
-                        onClick={() => this.props.addFavoriteData2(this.props.amazonResults.ASIN)} 
-                        className={this.state.active ? "far fa-heart cursor-pointer activeIcon" : "far fa-heart cursor-pointer"}></i>
+                         onClick={() => this.props.addFavorites(this.props.amazonResults.asin)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
+                            <path id="heart" onClick={this.changeToActive} className={this.state.active ? "activeIcon" : "cursor-pointer fill-teal"}
+                                  d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z">
+                            </path>
+                        </svg>
                     </div>
-                    <img className="w-full" src={this.props.amazonResults.imageUrl} alt="Sunset in the mountains"/>
+                    <img className="w-4/5 mx-auto" src={this.props.amazonResults.imageUrl} alt="Sunset in the mountains"/>
                     <div className="px-6 p-4 flex justify-center">
-                        <img className="w-40" src="amazon-logo" alt="amazon.png"/>
+                        <img className="w-32" src="amazon.png" alt="amazon-logo.png"/>
                     </div>
                     <div className="px-6 pt-4">
                         <ul className="text-left">
-                            <li className="font-bold text-xl mb-2">{this.props.amazonResults.title}</li>
+                            <li className="text-xl mb-2">{this.props.amazonResults.title.substring(0, 50)}</li>
                             <li className="text-xl mt-4">{this.props.amazonResults.price}</li>
                         </ul>
                     </div>

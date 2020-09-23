@@ -33,14 +33,14 @@ function Login(){
                     </div>
                     <div className="flex items-center justify-center">
                         <button 
-                            className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            className="bg-primary hover:bg-teal-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="button">
-                            Sign In
+                            Log In
                         </button>
                     </div>
                 </form>
                 <p className="text-center text-gray-500 text-xs">
-                    &copy;2020 Acme Corp. All rights reserved.
+                    &copy;2020 Buy-Spy Corp. All rights reserved.
                 </p>
             </div>
         </div>
