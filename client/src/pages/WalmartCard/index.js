@@ -19,12 +19,13 @@ class WalmartCard extends Component {
                 <div className="px-5 pt-5">
                     <div className=" flex justify-end"
                          onClick={() => this.props.addFavorites(this.props.results.itemId)}>
-                        <i id="heart" 
-                            /* onClick={this.changeToActive}  */
-                            onClick={() => this.props.addFavoriteData(this.props.results.itemId)} 
-                            className={this.state.active ? "far fa-heart cursor-pointer activeIcon" : "far fa-heart cursor-pointer"}></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
+                            <path id="heart" onClick={this.changeToActive} className={this.state.active ? "activeIcon" : "cursor-pointer fill-teal"}
+                                  d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z">
+                                  </path>
+                        </svg>
                     </div>
-                    <img className="w-full" src={this.props.results.largeImage} alt="Sunset in the mountains"/>
+                    <img className="w-4/5 mx-auto" src={this.props.results.largeImage} alt="Sunset in the mountains"/>
                     <div className="px-6 p-4 flex justify-center">
                         <img className="w-40" src="walmart.png" alt="amazon-logo"/>
                     </div>
