@@ -6,27 +6,27 @@ mongoose.connect(
   "mongodb://localhost/favorites"
 );
 
-const favoritesSeed = [
-  {
-    itemId:"1515831",
-    image:"none",
-    name:"standup desk",
-    salePrice:"400",
-    productUrl:"www.walmart.com",
-  }
-];
+// const favoritesSeed = [
+//   {
+//     itemId:"1515831",
+//     image:"none",
+//     name:"standup desk",
+//     salePrice:"400",
+//     productUrl:"www.walmart.com",
+//   }
+// ];
 
-db.Favorites
-  .remove({})
-  .then(() => db.Favorites.collection.insertMany(favoritesSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.Favorites
+//   .remove({})
+//   .then(() => db.Favorites.collection.insertMany(favoritesSeed))
+//   .then(data => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
 
   // ***********authentication start to the username and password section of the app
     // demo code 

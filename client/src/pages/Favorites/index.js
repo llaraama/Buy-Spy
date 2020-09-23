@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 import WalmartCard from "../WalmartCard"
 import API from "../../utils/API"
+import AmazonCard from "../AmazonCard"
 
 
 class Favorites extends Component{
   
 state={
-    dbResults:[]
+    dbResults:[],
+    dbAmazonResults: []
 
 };
 componentDidMount(){
@@ -17,6 +19,16 @@ componentDidMount(){
             this.setState({ dbResults: data.data})
         })
         .catch (err=> console.log(err))
+
+        API.getFavorites()
+        .then(data =>{
+            console.log("this is it ")
+            console.log(data.data);
+            this.setState({ dbAmazonResults: data.data})
+        })
+        .catch (err=> console.log(err))
+
+
 }
 render(){
     return (
@@ -28,10 +40,21 @@ render(){
                             <WalmartCard 
                             results={item} 
                             key={item.itemId} 
+                            
                          />
                         )
                     })}
                 </div>
+                {/* <div className="flex flex-wrap justify-center">
+                        {this.state.dbAmazonResults.map(itemAmazon => {
+                            return( 
+                                <AmazonCard
+                                amazonResults= {itemAmazon} 
+                                key={itemAmazon.ASIN} 
+                               />
+                            )
+                        })}
+                    </div> */}
            
             </main>
         </div>

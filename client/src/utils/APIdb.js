@@ -1,10 +1,10 @@
-import axios from "axios";
+// import axios from "axios";
 
-export default {
+// export default {
 
 
  
-saveFavorites: function (favoritesData){
-    return axios.post("/api/favorites",favoritesData)
-}
-  };
+// saveFavorites: function (favoritesData){
+//     return axios.post("/api/favorites",favoritesData)
+// }
+//   };
