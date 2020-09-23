@@ -27,6 +27,7 @@ export default {
     },
 
     saveFavorites: function (favoritesData) {
+        console.log("made it to saved favorites")
         return axios.post("/api/favorites", favoritesData)
     },
 
