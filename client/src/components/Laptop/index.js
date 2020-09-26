@@ -34,29 +34,8 @@ class Laptop extends Component {
             .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
- targetSearchItems = query => {
-        API.targetSearchItems(query)
-            .then(res => this.setState({targetResults: res.data.products}))
-            .then(this.getImage)
-            .catch(err => console.log(err));
-    };
-
-    getImage = () => {
-        const newData = this.state.targetResults.map(item => {
-            let images = item.images
-            images.map (image => {
-                let base = image.base_url
-                let guest = image.primary
-                let url = base + guest
-
-                item.targetImages = url
-            })
-            return item
-        })
-        this.setState({targetResults: newData})
 
     addFavoriteData = id => {
-
         console.log(`Clicked: ${id}`)
 
         let foundFav = this.state.results.filter(item => {
@@ -121,7 +100,28 @@ class Laptop extends Component {
             .catch(err => {
                 console.log(err);
             });
+    }
 
+    targetSearchItems = query => {
+        API.targetSearchItems(query)
+            .then(res => this.setState({targetResults: res.data.products}))
+            .then(this.getImage)
+            .catch(err => console.log(err));
+    };
+
+    getImage = () => {
+        const newData = this.state.targetResults.map(item => {
+            let images = item.images
+            images.map (image => {
+                let base = image.base_url
+                let guest = image.primary
+                let url = base + guest
+
+                item.targetImages = url
+            })
+            return item
+        })
+        this.setState({targetResults: newData})
     }
 
     render() {
@@ -167,6 +167,7 @@ class Laptop extends Component {
         )
     }
 }
+
 
 export default Laptop;
 
