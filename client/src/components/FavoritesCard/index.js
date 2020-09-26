@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 
-class WalmartCard extends Component {
+class FavoritesCard extends Component {
 
     state = {
         active: false
@@ -26,14 +26,14 @@ class WalmartCard extends Component {
                                   </path>
                         </svg>
                     </div>
-                    <img className="w-4/5 mx-auto" src={this.props.results.largeImage} alt="Sunset in the mountains"/>
+                    <img className="w-4/5 mx-auto" src={this.props.results.image} alt="Sunset in the mountains"/>
                     <div className="px-6 p-4 flex justify-center">
-                        <img className="w-40" src="walmart.png" alt="amazon-logo"/>
+                        <img className="w-40" src={this.props.results.logo} alt={this.props.results.logo}/>
                     </div>
                     <div className="px-6 pt-4">
                         <ul className="text-left">
-                            <li className="font-bold text-xl mb-2">{this.props.results.name.substr(0, 30)}</li>
-                            <li className="text-xl mt-4">${this.props.results.salePrice}</li>
+                            <li className="font-bold text-xl mb-2">{this.props.results.name.substr(0, 40)}</li>
+                            <li className="text-xl mt-4">{this.props.results.salePrice}</li>
                         </ul>
                     </div>
                 </div>
@@ -48,4 +48,4 @@ class WalmartCard extends Component {
         );
     }
 }
-export default WalmartCard;
+export default FavoritesCard;

@@ -36,21 +36,25 @@ let tempObj=req.body
           console.log("Hit Create Route /api/favorites");
         console.log(req.body);
       },
+
+
       AMZcreate: function(req, res) {
         // Create something here 
-        let tempObj2 = {
-          itemId: req.body[0].ASIN,
-          image: req.body[0].imageUrl,
-          name: req.body[0].title,
-          salePrice: req.body[0].price,
-          productUrl: req.body[0].detailPageURL
-        }
+        // let tempObj2 = {
+        //   itemId: req.body[0].ASIN,
+        //   image: req.body[0].imageUrl,
+        //   name: req.body[0].title,
+        //   salePrice: req.body[0].price,
+        //   productUrl: req.body[0].detailPageURL
+        // }
 
         console.warn(tempObj2);
         console.log("**********");
 
+
+        
         db.Favorites
-          .create(tempObj2)
+          .AMZcreate(tempObj2)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       }
