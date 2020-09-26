@@ -1,22 +1,26 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import API from "../../utils/API";
 import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
+import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
+
 
 class Desk extends Component {
     state = {
         results: [],
         amazonResults: [],
-        favs: []
+        favs: [],
+        targetResults: []
     };
 
     // When this component mounts, search for the item "desk"
     componentDidMount() {
         this.searchItems("desk");
         this.searchAmazon("desk");
+        this.targetSearchItems("desk");
     }
 
     searchItems = query => {
@@ -40,7 +44,6 @@ class Desk extends Component {
             return item.itemId == id;
         });
 
-
         let saleprice;
 
         if(foundFav){
@@ -55,6 +58,7 @@ class Desk extends Component {
           productUrl: foundFav[0].productUrl,
           logo:WalmartLogo
         }
+          
         console.log("***********");
         console.log(foundFav);
 
@@ -71,8 +75,8 @@ class Desk extends Component {
                 console.log(err);
             });
     }
-    addFavoriteData2 = id => {
 
+    addFavoriteData2 = id => {
         console.log(`Clicked: ${id}`)
         console.log("clicked amazon")
 
@@ -82,8 +86,8 @@ class Desk extends Component {
         });
 
         let tempObj2 = {
-            itemId:foundFavAmazon[0].ASIN,
-            image:foundFavAmazon[0].imageUrl,
+            itemId: foundFavAmazon[0].ASIN,
+            image: foundFavAmazon[0].imageUrl,
             name: foundFavAmazon[0].title,
             salePrice: foundFavAmazon[0].price,
             productUrl:foundFavAmazon[0].detailPageURL,
@@ -91,6 +95,7 @@ class Desk extends Component {
 
           }
           console.log(tempObj2)
+
 
         // update State of FAVS array
         // this.setState({ favs: foundFav });
@@ -106,6 +111,28 @@ class Desk extends Component {
             });
     }
 
+    targetSearchItems = query => {
+        API.targetSearchItems(query)
+            .then(res => this.setState({targetResults: res.data.products}))
+            .then(this.getImage)
+            .catch(err => console.log(err));
+    };
+
+    getImage = () => {
+        const newData = this.state.targetResults.map(item => {
+            let images = item.images
+            images.map (image => {
+                let base = image.base_url
+                let guest = image.primary
+                let url = base + guest
+
+                item.targetImages = url
+            })
+            return item
+        })
+        this.setState({targetResults: newData})
+    }
+
     render() {
         return (
             <div className="text-center mb-32">
@@ -114,9 +141,9 @@ class Desk extends Component {
                     <div className="flex flex-wrap justify-center">
                         {this.state.results.map(item => {
                             return (
-                                <WalmartCard 
-                                    results={item} 
-                                    key={item.itemId} 
+                                <WalmartCard
+                                    results={item}
+                                    key={item.itemId}
                                     addFavorites={this.props.addFavorites}
                                     addFavoriteData={this.addFavoriteData}/>
                             )
@@ -124,12 +151,23 @@ class Desk extends Component {
                     </div>
                     <div className="flex flex-wrap justify-center">
                         {this.state.amazonResults.map(itemAmazon => {
-                            return( 
+                            return (
                                 <AmazonCard
-                                amazonResults= {itemAmazon} 
-                                key={itemAmazon.asin} 
-                                addFavorites={this.props.addFavorites}
-                                addFavoriteData2={this.addFavoriteData2}/>
+                                    amazonResults={itemAmazon}
+                                    key={itemAmazon.asin}
+                                    addFavorites={this.props.addFavorites}
+                                    addFavoriteData2={this.addFavoriteData2}/>
+                            )
+                        })}
+                    </div>
+                    <div className="flex flex-wrap justify-center">
+                        {this.state.targetResults.map(item => {
+                            return (
+                                <TargetCard
+                                    results={item}
+                                    key={item.tcin}
+                                    addFavorites={this.props.addFavorites}
+                                />
                             )
                         })}
                     </div>

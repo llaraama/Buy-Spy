@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
+import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 
@@ -10,13 +11,15 @@ class Mouse extends Component {
     state = {
         results: [],
         amazonResults: [],
-        favs: []
+        favs: [],
+        targetResults: []
     };
 
     // When this component mounts, search for the item "mouse"
     componentDidMount() {
         this.searchItems("mouse");
         this.searchAmazon("computermouse");
+        this.targetSearchItems("mouse");
     }
 
     searchItems = query => {
@@ -30,8 +33,8 @@ class Mouse extends Component {
             .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
-    addFavoriteData = id => {
 
+    addFavoriteData = id => {
         console.log(`Clicked: ${id}`)
 
         let foundFav = this.state.results.filter(item => {
@@ -98,6 +101,28 @@ class Mouse extends Component {
             });
     }
 
+    targetSearchItems = query => {
+        API.targetSearchItems(query)
+            .then(res => this.setState({targetResults: res.data.products}))
+            .then(this.getImage)
+            .catch(err => console.log(err));
+    };
+
+    getImage = () => {
+        const newData = this.state.targetResults.map(item => {
+            let images = item.images
+            images.map (image => {
+                let base = image.base_url
+                let guest = image.primary
+                let url = base + guest
+
+                item.targetImages = url
+            })
+            return item
+        })
+        this.setState({targetResults: newData})
+    }
+
     render() {
         return (
             <div className="text-center mb-32">
@@ -122,6 +147,17 @@ class Mouse extends Component {
                                 key={itemAmazon.asin} 
                                 addFavorites={this.props.addFavorites}
                                 addFavoriteData2={this.addFavoriteData2}/>
+                            )
+                        })}
+                    </div>
+                    <div className="flex flex-wrap justify-center">
+                        {this.state.targetResults.map(item => {
+                            return (
+                                <TargetCard
+                                    results={item}
+                                    key={item.tcin}
+                                    addFavorites={this.props.addFavorites}
+                                />
                             )
                         })}
                     </div>

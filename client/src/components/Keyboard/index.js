@@ -3,20 +3,24 @@ import API from "../../utils/API";
 import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
+import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
+
 
 class Keyboard extends Component {
     state = {
         results: [],
         amazonResults: [],
-        favs:[]
+        favs: [],
+        targetResults: [],
     };
 
     // When this component mounts, search for the item "keyboard"
     componentDidMount() {
         this.searchItems("keyboard");
         this.searchAmazon("computerkeyboard");
+        this.targetSearchItems("keyboard");
     }
 
     searchItems = query => {
@@ -30,6 +34,27 @@ class Keyboard extends Component {
             .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
+
+     targetSearchItems = query => {
+        API.targetSearchItems(query)
+            .then(res => this.setState({targetResults: res.data.products}))
+            .then(this.getImage)
+            .catch(err => console.log(err));
+    };
+
+    getImage = () => {
+        const newData = this.state.targetResults.map(item => {
+            let images = item.images
+            images.map (image => {
+                let base = image.base_url
+                let guest = image.primary
+                let url = base + guest
+
+                item.targetImages = url
+            })
+            return item
+        })
+        this.setState({targetResults: newData})
 
     addFavoriteData = id => {
 
@@ -66,6 +91,7 @@ class Keyboard extends Component {
     }
     addFavoriteData2 = id => {
 
+
         console.log(`Clicked: ${id}`)
         console.log("clicked amazon")
 
@@ -97,37 +123,50 @@ class Keyboard extends Component {
             .catch(err => {
                 console.log(err);
             });
+
     }
 
     render() {
         return (
-            <div className="text-center mb-32">
-                <Menu/>
-                <main className="mt-5">
-                    <div className="flex flex-wrap justify-center">
-                        {this.state.results.map(item => {
-                            return (
-                                <WalmartCard 
-                                    results={item} 
-                                    key={item.itemId} 
-                                    addFavorites={this.props.addFavorites}
-                                    addFavoriteData={this.addFavoriteData}/>
-                            )
-                        })}
-                    </div>
-                    <div className="flex flex-wrap justify-center">
-                        {this.state.amazonResults.map(itemAmazon => {
-                            return( 
-                                <AmazonCard
-                                amazonResults= {itemAmazon} 
-                                key={itemAmazon.asin} 
-                                addFavorites={this.props.addFavorites}
-                                addFavoriteData2={this.addFavoriteData2}/>
-                            )
-                        })}
-                    </div>
-                </main>
-            </div>
+
+            <div>
+                {(this.state.targetImgs === {}) ? <div>Empty</div> : <div className="text-center mb-32">
+                    <Menu/>
+                    <main className="mt-5">
+                        <div className="flex flex-wrap justify-center">
+                            {this.state.results.map(item => {
+                                return (
+                                    <WalmartCard
+                                        results={item}
+                                        key={item.itemId}
+                                        addFavorites={this.props.addFavorites}
+                                        addFavoriteData={this.addFavoriteData}/>
+                                )
+                            })}
+                        </div>
+                        <div className="flex flex-wrap justify-center">
+                            {this.state.amazonResults.map(item => {
+                                return (
+                                    <AmazonCard amazonResults={item} key={item.asin}
+                                                addFavorites={this.props.addFavorites}/>
+                                )
+                            })}
+                        </div>
+                        <div className="flex flex-wrap justify-center">
+                            {console.log(this.state.targetResults)}
+                            {this.state.targetResults.map(item => {
+                                    return (
+                                        <TargetCard
+                                            results={item}
+                                            key={item.tcin}
+                                            addFavorites={this.props.addFavorites}
+                                        />
+                                    )
+                            })}
+                        </div>
+                    </main>
+                </div>
+
         )
     }
 }
