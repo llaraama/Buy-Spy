@@ -6,6 +6,7 @@ import AmazonCard from "../../pages/AmazonCard";
 import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
+import TargetLogo from "../../target.png"
 
 
 class Keyboard extends Component {
@@ -30,21 +31,29 @@ class Keyboard extends Component {
     };
 
     addFavoriteData = id => {
+
         console.log(`Clicked: ${id}`)
 
         let foundFav = this.state.results.filter(item => {
             // logic to match item ID
-            return item.itemId === id;
+            return item.itemId == id;
         });
+
+        let saleprice;
+
+        if(foundFav){
+            saleprice = "$" +  foundFav[0].salePrice
+        }
 
           let tempWalmartObj = {
           itemId: foundFav[0].itemId,
           image: foundFav[0].largeImage,
           name: foundFav[0].name,
-          salePrice: foundFav[0].salePrice,
+          salePrice: saleprice,
           productUrl: foundFav[0].productUrl,
           logo:WalmartLogo
         }
+          
         console.log("***********");
         console.log(foundFav);
 
@@ -61,19 +70,19 @@ class Keyboard extends Component {
                 console.log(err);
             });
     }
-    addFavoriteData2 = id => {
 
+    addFavoriteData2 = id => {
         console.log(`Clicked: ${id}`)
         console.log("clicked amazon")
 
         let foundFavAmazon = this.state.amazonResults.filter(itemAmazon => {
             // logic to match item ID
-            return itemAmazon.ASIN === id;
+            return itemAmazon.ASIN == id;
         });
 
         let tempObj2 = {
-            itemId:foundFavAmazon[0].ASIN,
-            image:foundFavAmazon[0].imageUrl,
+            itemId: foundFavAmazon[0].ASIN,
+            image: foundFavAmazon[0].imageUrl,
             name: foundFavAmazon[0].title,
             salePrice: foundFavAmazon[0].price,
             productUrl:foundFavAmazon[0].detailPageURL,
@@ -82,11 +91,48 @@ class Keyboard extends Component {
           }
           console.log(tempObj2)
 
+
         // update State of FAVS array
         // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj2)
+            .then(res => {
+                console.log("Item Saved");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+    addFavoriteData3 = id => {
+        console.log(`Clicked: ${id}`)
+        console.log("clicked amazon")
+
+        let foundFavTarget = this.state.targetResults.filter(item => {
+            // logic to match item ID
+            return item.tcin == id;
+        });
+
+        let tempObj3 = {
+            itemId: foundFavTarget[0].tcin,
+            image: foundFavTarget[0].targetImages,
+            name: foundFavTarget[0].title,
+            salePrice: foundFavTarget[0].price.formatted_current_price,
+            productUrl:foundFavTarget[0].url,
+            logo:TargetLogo
+
+          }
+          console.log("this is target below")
+          console.log(tempObj3)
+          console.log(foundFavTarget)
+
+
+        // update State of FAVS array
+        // this.setState({ favs: foundFav });
+
+        // send OBJECT to backend route (server.js)
+        API.saveFavorites(tempObj3)
             .then(res => {
                 console.log("Item Saved");
                 console.log(res.data);
@@ -152,7 +198,7 @@ class Keyboard extends Component {
                                     results={item}
                                     key={item.tcin}
                                     addFavorites={this.props.addFavorites}
-                                />
+                                    addFavoriteData3={this.addFavoriteData3}/>
                             )
                         })}
                     </div>

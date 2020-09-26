@@ -6,6 +6,7 @@ import AmazonCard from "../../pages/AmazonCard";
 import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
+import TargetLogo from "../../target.png"
 
 
 class Desk extends Component {
@@ -110,6 +111,42 @@ class Desk extends Component {
                 console.log(err);
             });
     }
+    addFavoriteData3 = id => {
+        console.log(`Clicked: ${id}`)
+        console.log("clicked amazon")
+
+        let foundFavTarget = this.state.targetResults.filter(item => {
+            // logic to match item ID
+            return item.tcin == id;
+        });
+
+        let tempObj3 = {
+            itemId: foundFavTarget[0].tcin,
+            image: foundFavTarget[0].targetImages,
+            name: foundFavTarget[0].title,
+            salePrice: foundFavTarget[0].price.formatted_current_price,
+            productUrl:foundFavTarget[0].url,
+            logo:TargetLogo
+
+          }
+          console.log("this is target below")
+          console.log(tempObj3)
+          console.log(foundFavTarget)
+
+
+        // update State of FAVS array
+        // this.setState({ favs: foundFav });
+
+        // send OBJECT to backend route (server.js)
+        API.saveFavorites(tempObj3)
+            .then(res => {
+                console.log("Item Saved");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
 
     targetSearchItems = query => {
         API.targetSearchItems(query)
@@ -167,7 +204,7 @@ class Desk extends Component {
                                     results={item}
                                     key={item.tcin}
                                     addFavorites={this.props.addFavorites}
-                                />
+                                    addFavoriteData3={this.addFavoriteData3}/>
                             )
                         })}
                     </div>

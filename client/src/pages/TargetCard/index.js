@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import API from "../../utils/API";
+
 
 class TargetCard extends Component {
     state = {
@@ -18,7 +18,12 @@ class TargetCard extends Component {
                 <div className="px-5 pt-5">
                     <div className=" flex justify-end"
                          onClick={() => this.props.addFavorites(this.props.results.tcin)}>
-                        <i id="heart" onClick={this.changeToActive} className={this.state.active ? "far fa-heart cursor-pointer activeIcon" : "far fa-heart cursor-pointer"}></i>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
+                         <path id="heart" 
+                              onClick={() => this.props.addFavoriteData3(this.props.results.tcin)} 
+                                  d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z">
+                                  </path>
+                        </svg>          
                     </div>
                     <img className="w-full" src={this.props.results.targetImages} alt="item"/>
                     <div className="px-6 p-4 flex justify-center">
@@ -33,7 +38,7 @@ class TargetCard extends Component {
                 </div>
                 <div className="flex justify-end">
                     <div className="bg-primary p-2 w-1/4 text-center rounded-tl-lg">
-                        <a className="text-white" href={this.props.results.productUrl}>
+                        <a className="text-white" href={this.props.results.url}>
                             Buy it!
                         </a>
                     </div>
