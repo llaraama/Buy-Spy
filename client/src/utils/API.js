@@ -3,7 +3,7 @@ const BASEURL = "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/
 const FORMAT = "&format=json"
  // api key is a placeholder to avoid access api calls
 //  walmart api
-const APIKEY = "&apiKey=xtqvmkkcabv8w66e7rnwtt8x";
+const APIKEY = "&apiKey=none";
 
 const AMAZONURL = "https://amazon-price1.p.rapidapi.com/search"
 
@@ -11,8 +11,10 @@ const AMAZONURL = "https://amazon-price1.p.rapidapi.com/search"
 const URL = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=10&offset=0&store_id=3991&keyword="
 const parameters = { headers: {
         "x-rapidapi-host": "target-com-store-product-reviews-locations-data.p.rapidapi.com",
-        "x-rapidapi-key": "3700cedbf2msh1b23e722a2f09b9p12d8aajsn21b52b5b0e24"
+        // placeholder for the target api
+        "x-rapidapi-key": "none"
     }}
+    
 
 export default {
     searchItems: function(query) {
@@ -25,7 +27,8 @@ export default {
             headers: {
                 "content-type":"application/octet-stream",
                 "x-rapidapi-host":"amazon-price1.p.rapidapi.com",
-                "x-rapidapi-key":"3ea418fca5msh218b03108eae83cp148",
+                // placeholder for the amazon api
+                "x-rapidapi-key":"none",
                 "useQueryString":true
             },
             params: {
