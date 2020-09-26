@@ -3,6 +3,8 @@ import API from "../../utils/API";
 import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
+import AmazonLogo from "../../amazon.png"
+import WalmartLogo from "../../walmart.png"
 
 class Desk extends Component {
     state = {
@@ -38,12 +40,20 @@ class Desk extends Component {
             return item.itemId == id;
         });
 
+
+        let saleprice;
+
+        if(foundFav){
+            saleprice = "$" +  foundFav[0].salePrice
+        }
+
           let tempWalmartObj = {
           itemId: foundFav[0].itemId,
           image: foundFav[0].largeImage,
           name: foundFav[0].name,
-          salePrice: foundFav[0].salePrice,
-          productUrl: foundFav[0].productUrl
+          salePrice: saleprice,
+          productUrl: foundFav[0].productUrl,
+          logo:WalmartLogo
         }
         console.log("***********");
         console.log(foundFav);
@@ -76,7 +86,9 @@ class Desk extends Component {
             image:foundFavAmazon[0].imageUrl,
             name: foundFavAmazon[0].title,
             salePrice: foundFavAmazon[0].price,
-            productUrl:foundFavAmazon[0].detailPageURL
+            productUrl:foundFavAmazon[0].detailPageURL,
+            logo:AmazonLogo
+
           }
           console.log(tempObj2)
 
