@@ -4,6 +4,9 @@ import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
 import TargetCard from "../../pages/TargetCard";
+import AmazonLogo from "../../amazon.png"
+import WalmartLogo from "../../walmart.png"
+
 
 class Desk extends Component {
     state = {
@@ -41,13 +44,21 @@ class Desk extends Component {
             return item.itemId == id;
         });
 
-        let tempWalmartObj = {
-            itemId: foundFav[0].itemId,
-            image: foundFav[0].largeImage,
-            name: foundFav[0].name,
-            salePrice: foundFav[0].salePrice,
-            productUrl: foundFav[0].productUrl
+        let saleprice;
+
+        if(foundFav){
+            saleprice = "$" +  foundFav[0].salePrice
         }
+
+          let tempWalmartObj = {
+          itemId: foundFav[0].itemId,
+          image: foundFav[0].largeImage,
+          name: foundFav[0].name,
+          salePrice: saleprice,
+          productUrl: foundFav[0].productUrl,
+          logo:WalmartLogo
+        }
+          
         console.log("***********");
         console.log(foundFav);
 
@@ -79,9 +90,12 @@ class Desk extends Component {
             image: foundFavAmazon[0].imageUrl,
             name: foundFavAmazon[0].title,
             salePrice: foundFavAmazon[0].price,
-            productUrl: foundFavAmazon[0].detailPageURL
-        }
-        console.log(tempObj2)
+            productUrl:foundFavAmazon[0].detailPageURL,
+            logo:AmazonLogo
+
+          }
+          console.log(tempObj2)
+
 
         // update State of FAVS array
         // this.setState({ favs: foundFav });

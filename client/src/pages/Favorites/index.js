@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import WalmartCard from "../WalmartCard"
+// import WalmartCard from "../WalmartCard"
 import API from "../../utils/API"
-import AmazonCard from "../AmazonCard"
+// import AmazonCard from "../AmazonCard"
+import FavoritesCard from "../../components/FavoritesCard"
 
 
 class Favorites extends Component{
@@ -37,7 +38,7 @@ render(){
                 <div className="flex flex-wrap justify-center">
                     {this.state.dbResults.map(item => {
                         return (
-                            <WalmartCard 
+                            <FavoritesCard
                             results={item} 
                             key={item.itemId} 
                             
@@ -50,7 +51,7 @@ render(){
                             return( 
                                 <AmazonCard
                                 amazonResults= {itemAmazon} 
-                                key={itemAmazon.ASIN} 
+                                key={itemAmazon.asin} 
                                />
                             )
                         })}

@@ -4,6 +4,9 @@ import Menu from "../Menu";
 import WalmartCard from "../../pages/WalmartCard";
 import AmazonCard from "../../pages/AmazonCard";
 import TargetCard from "../../pages/TargetCard";
+import AmazonLogo from "../../amazon.png"
+import WalmartLogo from "../../walmart.png"
+
 
 class Laptop extends Component {
     state = {
@@ -31,34 +34,7 @@ class Laptop extends Component {
             .then(res => this.setState({amazonResults: res.data}))
             .catch(err => console.log(err));
     };
-
-    addFavoriteData = id => {
-
-        console.log(`Clicked: ${id}`)
-
-        let foundFav = this.state.results.filter(item => {
-            // logic to match item ID
-            return item.itemId == id;
-        });
-
-        console.log("***********");
-        console.log(foundFav);
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
-
-        // send OBJECT to backend route (server.js)
-        API.saveFavorites(foundFav)
-            .then(res => {
-                console.log("Item Saved");
-                console.log(res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-
-    targetSearchItems = query => {
+ targetSearchItems = query => {
         API.targetSearchItems(query)
             .then(res => this.setState({targetResults: res.data.products}))
             .then(this.getImage)
@@ -78,6 +54,74 @@ class Laptop extends Component {
             return item
         })
         this.setState({targetResults: newData})
+
+    addFavoriteData = id => {
+
+        console.log(`Clicked: ${id}`)
+
+        let foundFav = this.state.results.filter(item => {
+            // logic to match item ID
+            return item.itemId == id;
+        });
+
+          let tempWalmartObj = {
+          itemId: foundFav[0].itemId,
+          image: foundFav[0].largeImage,
+          name: foundFav[0].name,
+          salePrice: foundFav[0].salePrice,
+          productUrl: foundFav[0].productUrl,
+          logo:WalmartLogo
+        }
+        console.log("***********");
+        console.log(foundFav);
+
+        // update State of FAVS array
+        // this.setState({ favs: foundFav });
+
+        // send OBJECT to backend route (server.js)
+        API.saveFavorites(tempWalmartObj)
+            .then(res => {
+                console.log("Item Saved");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+    addFavoriteData2 = id => {
+
+        console.log(`Clicked: ${id}`)
+        console.log("clicked amazon")
+
+        let foundFavAmazon = this.state.amazonResults.filter(itemAmazon => {
+            // logic to match item ID
+            return itemAmazon.ASIN == id;
+        });
+
+        let tempObj2 = {
+            itemId:foundFavAmazon[0].ASIN,
+            image:foundFavAmazon[0].imageUrl,
+            name: foundFavAmazon[0].title,
+            salePrice: foundFavAmazon[0].price,
+            productUrl:foundFavAmazon[0].detailPageURL,
+            logo:AmazonLogo
+
+          }
+          console.log(tempObj2)
+
+        // update State of FAVS array
+        // this.setState({ favs: foundFav });
+
+        // send OBJECT to backend route (server.js)
+        API.saveFavorites(tempObj2)
+            .then(res => {
+                console.log("Item Saved");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
     }
 
     render() {
@@ -89,18 +133,21 @@ class Laptop extends Component {
                         {this.state.results.map(item => {
                             return (
                                 <WalmartCard 
-                                results={item} 
-                                key={item.itemId} 
-                                addFavorites={this.props.addFavorites}
-                                addFavoriteData={this.addFavoriteData}/>
-
+                                    results={item} 
+                                    key={item.itemId} 
+                                    addFavorites={this.props.addFavorites}
+                                    addFavoriteData={this.addFavoriteData}/>
                             )
                         })}
                     </div>
                     <div className="flex flex-wrap justify-center">
-                        {this.state.amazonResults.map(item => {
+                        {this.state.amazonResults.map(itemAmazon => {
                             return( 
-                                <AmazonCard amazonResults= {item} key={item.asin} addFavorites={this.props.addFavorites}/>
+                                <AmazonCard
+                                amazonResults= {itemAmazon} 
+                                key={itemAmazon.asin} 
+                                addFavorites={this.props.addFavorites}
+                                addFavoriteData2={this.addFavoriteData2}/>
                             )
                         })}
                     </div>
@@ -122,3 +169,4 @@ class Laptop extends Component {
 }
 
 export default Laptop;
+
