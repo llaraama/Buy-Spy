@@ -8,7 +8,6 @@ import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
 
-
 class Desk extends Component {
     state = {
         results: [],
@@ -59,10 +58,9 @@ class Desk extends Component {
           productUrl: foundFav[0].productUrl,
           logo:WalmartLogo
         }
-          
+
         console.log("***********");
         console.log(foundFav);
-
         // update State of FAVS array
         // this.setState({ favs: foundFav });
 
@@ -96,7 +94,6 @@ class Desk extends Component {
 
           }
           console.log(tempObj2)
-
 
         // update State of FAVS array
         // this.setState({ favs: foundFav });
@@ -132,7 +129,6 @@ class Desk extends Component {
           console.log("this is target below")
           console.log(tempObj3)
           console.log(foundFavTarget)
-
 
         // update State of FAVS array
         // this.setState({ favs: foundFav });
@@ -174,8 +170,8 @@ class Desk extends Component {
         return (
             <div className="text-center mb-32">
                 <Menu/>
-                <main className="mt-5">
-                    <div className="flex flex-wrap justify-center">
+                <main className="mt-5 flex flex-wrap">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.results.map(item => {
                             return (
                                 <WalmartCard
@@ -186,7 +182,7 @@ class Desk extends Component {
                             )
                         })}
                     </div>
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.amazonResults.map(itemAmazon => {
                             return (
                                 <AmazonCard
@@ -197,7 +193,7 @@ class Desk extends Component {
                             )
                         })}
                     </div>
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.targetResults.map(item => {
                             return (
                                 <TargetCard
