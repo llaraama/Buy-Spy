@@ -22,7 +22,7 @@ function Navbar(props) {
                 <li className="mr-6">
                     <Link
                         className={location.pathname === "/desktop" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/desktop">Desktop</Link>
+                        to="/desktop">Desk</Link>
                 </li>
                 <li className="mr-6">
                     <Link
@@ -41,8 +41,8 @@ function Navbar(props) {
                 </li>
                 <li className="mr-6">
                     <Link
-                        className={location.pathname === "/login" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/login">Login</Link>
+                        className={location.pathname === "/signup" ? "nav-link active" : "text-teal-400 hover:underline"}
+                        to="/signup">Signup</Link>
                 </li>
             </ul>
             <div className="w-full block flex-grow flex lg:justify-end lg:w-auto">

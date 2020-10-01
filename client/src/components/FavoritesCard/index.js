@@ -17,11 +17,10 @@ class FavoritesCard extends Component {
                 className="mt-8 mx-4 lg:w-1/4 md:1/2 w-full bg-white rounded max-w-xs shadow-lg select-none overflow-hidden"
                 key={this.props.results.itemId}>
                 <div className="px-5 pt-5">
-                    <div className=" flex justify-end"
-                         onClick={() => this.props.addFavorites(this.props.results.itemId)}>
+                    <div className=" flex justify-end">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
                             <path id="heart" 
-                              onClick={() => this.props.addFavoriteData(this.props.results.itemId)} 
+                              onClick={() => this.props.removeFavoritesData(this.props.results.itemId)} 
                                   d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z">
                                   </path>
                         </svg>

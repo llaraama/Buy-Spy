@@ -28,6 +28,36 @@ module.exports={
         console.log(req.body);
       },
 
+      remove:function(req,res){
+        console.log("made it to delete")
+        let removobj=this.itemid
+
+        db.Favorites
+        .remove(removobj)
+        .then(dbModel=>res.json(dbModel)
+        )
+        .catch(err=>res.status(422).json(err));
+        console.log("Hit remove Route /api/favorites/:id");
+        console.log(req.body)
+      }
+
+      // findById: function(req, res){
+      //   db.Favorites
+      //   .findById(req.params.id)
+      //   .then(dbModel=>res.json(dbModel))
+      //   .catch(err=>res.status(422).json(err));
+      // },
+
+      // remove:function(req,res){
+      //   db.Favorites
+      //   // .findById({_id:req.params.id})
+      //   .then(dbModel=>dbModel.remove())
+      //   .then(dbModel=>res.json(dbModel))
+      //   .catch(err=>res.status(422).json(err));
+      //   console.log("Hit remove Route /api/favorites/:id");
+      //   console.log(req.body)
+      // }
+
 
       
 
