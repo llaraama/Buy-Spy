@@ -14,7 +14,6 @@ const parameters = { headers: {
         // placeholder for the target api
         "x-rapidapi-key": "none"
     }}
-    
 
 export default {
     searchItems: function(query) {
@@ -59,7 +58,10 @@ export default {
 
     targetSearchItems: function(keyword) {
         return axios.get(URL + keyword, parameters);
+    },
 
+    getUser: function (userData) {
+        console.log("made it to login user");
+        return axios.post("api/users",userData)
     }
 }
-

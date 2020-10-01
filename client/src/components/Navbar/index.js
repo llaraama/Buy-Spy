@@ -39,13 +39,18 @@ function Navbar(props) {
                         className={location.pathname === "/keyboard" ? "nav-link active" : "text-teal-400 hover:underline"}
                         to="/keyboard">Keyboard</Link>
                 </li>
+            </ul>
+            <div className="w-full block flex-grow flex lg:justify-end lg:w-auto">
                 <li className="mr-6">
                     <Link
                         className={location.pathname === "/signup" ? "nav-link active" : "text-teal-400 hover:underline"}
                         to="/signup">Signup</Link>
                 </li>
-            </ul>
-            <div className="w-full block flex-grow flex lg:justify-end lg:w-auto">
+                <li className="mr-6">
+                    <Link
+                        className={location.pathname === "/login" ? "nav-link active" : "text-teal-400 hover:underline"}
+                        to="/login">Login</Link>
+                </li>
                 <Link to="/my-favorites"
                       className={location.pathname === "/my-favorites" ? "nav-link active" : "mt-4 lg:inline-block lg:mt-0 text-black hover:text-white text-primary"}>
                     My Favorites

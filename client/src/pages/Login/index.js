@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import API from '../../utils/API';
 
-function Signup () {
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+function Login () {
+    const [username, getUsername] = useState();
+    const [password, getPassword] = useState();
   
     const handleSubmit = e => {
       e.preventDefault();
-      let tempUser = {
-          username,password
-      }
+      let data = { username, password }
 
-      API.addUser(tempUser)
+      console.log(data)
+
+      API.getUser(data)
       .then(res => {
           console.log(res);
       })
@@ -26,7 +26,7 @@ function Signup () {
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                             Username
                         </label>
-                        <input onChange={e => setUsername(e.target.value)}
+                        <input onChange={e => getUsername(e.target.value)}
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="username" type="text" placeholder="Username"/>
                     </div>
@@ -34,17 +34,16 @@ function Signup () {
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                             Password
                         </label>
-                        <input onChange={e => setPassword(e.target.value)}
+                        <input onChange={e => getPassword(e.target.value)}
                             className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                             id="password" type="password" placeholder="******************"/>
-                        <p className="text-gray-500 text-xs italic">Make it as long and as crazy as you'd like</p>
                     </div>
                     <div className="flex items-center justify-center">
                         <a href="/my-favorites">
                             <button
                                 className="bg-primary hover:bg-teal-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                 type="submit" >
-                                Sign up
+                                Log in!
                             </button>
                         </a>
                     </div>
@@ -57,5 +56,4 @@ function Signup () {
     );
 }
 
-
-export default Signup;
+export default Login;
