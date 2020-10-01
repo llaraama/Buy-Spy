@@ -17,6 +17,14 @@ class Keyboard extends Component {
         targetResults: [],
     };
 
+
+    // When this component mounts, search for the item "keyboard"
+    componentDidMount() {
+        this.searchItems("keyboard");
+        this.searchAmazon("computerkeyboard");
+        this.targetSearchItems("keyboard");
+    }
+
     // When this component mounts, search for the item "keyboard"
     searchItems = query => {
         API.searchItems(query)
