@@ -8,7 +8,6 @@ import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
 
-
 class Keyboard extends Component {
     state = {
         results: [],
@@ -16,6 +15,14 @@ class Keyboard extends Component {
         favs: [],
         targetResults: [],
     };
+
+
+    // When this component mounts, search for the item "keyboard"
+    componentDidMount() {
+        this.searchItems("keyboard");
+        this.searchAmazon("computerkeyboard");
+        this.targetSearchItems("keyboard");
+    }
 
     // When this component mounts, search for the item "keyboard"
     searchItems = query => {
@@ -91,7 +98,6 @@ class Keyboard extends Component {
           }
           console.log(tempObj2)
 
-
         // update State of FAVS array
         // this.setState({ favs: foundFav });
 
@@ -126,7 +132,6 @@ class Keyboard extends Component {
           console.log("this is target below")
           console.log(tempObj3)
           console.log(foundFavTarget)
-
 
         // update State of FAVS array
         // this.setState({ favs: foundFav });
@@ -168,30 +173,30 @@ class Keyboard extends Component {
         return (
             <div className="text-center mb-32">
                 <Menu/>
-                <main className="mt-5">
-                    <div className="flex flex-wrap justify-center">
+                <main className="mt-5 flex flex-wrap">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.results.map(item => {
                             return (
-                                <WalmartCard 
-                                    results={item} 
-                                    key={item.itemId} 
+                                <WalmartCard
+                                    results={item}
+                                    key={item.itemId}
                                     addFavorites={this.props.addFavorites}
                                     addFavoriteData={this.addFavoriteData}/>
                             )
                         })}
                     </div>
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.amazonResults.map(itemAmazon => {
-                            return( 
+                            return(
                                 <AmazonCard
-                                amazonResults= {itemAmazon} 
-                                key={itemAmazon.asin} 
-                                addFavorites={this.props.addFavorites}
-                                addFavoriteData2={this.addFavoriteData2}/>
+                                    amazonResults= {itemAmazon}
+                                    key={itemAmazon.asin}
+                                    addFavorites={this.props.addFavorites}
+                                    addFavoriteData2={this.addFavoriteData2}/>
                             )
                         })}
                     </div>
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.targetResults.map(item => {
                             return (
                                 <TargetCard
@@ -207,6 +212,5 @@ class Keyboard extends Component {
         )
     }
 }
-
 
 export default Keyboard;

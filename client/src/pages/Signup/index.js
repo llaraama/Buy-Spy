@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
+import API from '../../utils/API';
 
-function Login(){
+function Signup(){
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
   
     const handleSubmit = e => {
       e.preventDefault();
+      let tempUser={
+          username,password
+      }
+      console.log("tempuser below")
+      console.log(tempUser)
+      API.addUser(tempUser)
+      .then(res => {
+          console.log(res);
+      })
+      .catch(err => console.log(err));
       console.log("username is " + username);
       console.log("password is " + password);
     };
@@ -34,8 +45,8 @@ function Login(){
                     <div className="flex items-center justify-center">
                         <button 
                             className="bg-primary hover:bg-teal-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="button">
-                            Log In
+                            type="submit" >
+                            Sign up
                         </button>
                     </div>
                 </form>
@@ -48,4 +59,4 @@ function Login(){
 }
 
 
-export default Login;
+export default Signup;

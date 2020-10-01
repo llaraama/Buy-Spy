@@ -28,7 +28,7 @@ export default {
                 "content-type":"application/octet-stream",
                 "x-rapidapi-host":"amazon-price1.p.rapidapi.com",
                 // placeholder for the amazon api
-                "x-rapidapi-key":"none",
+                "x-rapidapi-key":"3ea418fca5msh218b03108eae83cp1485c4jsn054b7949e9ab",
                 "useQueryString":true
             },
             params: {
@@ -47,8 +47,19 @@ export default {
         return axios.get("api/favorites");
     },
 
+    removeFavorites:function(){
+        console.log("made it to removed")
+        return axios.delete("api/favorites/:id");
+    },
+
+    addUser:function(userData){
+        console.log("made it to add user");
+        return axios.post("api/users",userData)
+    },
+
     targetSearchItems: function(keyword) {
         return axios.get(URL + keyword, parameters);
 
     }
 }
+

@@ -175,8 +175,8 @@ class Laptop extends Component {
         return (
             <div className="text-center mb-32">
                 <Menu/>
-                <main className="mt-5">
-                    <div className="flex flex-wrap justify-center">
+                <main className="mt-5 flex flex-wrap">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.results.map(item => {
                             return (
                                 <WalmartCard 
@@ -187,7 +187,7 @@ class Laptop extends Component {
                             )
                         })}
                     </div>
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.amazonResults.map(itemAmazon => {
                             return( 
                                 <AmazonCard
@@ -198,7 +198,7 @@ class Laptop extends Component {
                             )
                         })}
                     </div>
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.targetResults.map(item => {
                             return (
                                 <TargetCard
