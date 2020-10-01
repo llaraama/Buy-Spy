@@ -38,7 +38,7 @@ class TargetCard extends Component {
                 </div>
                 <div className="flex justify-end">
                     <div className="bg-primary p-2 w-1/4 text-center rounded-tl-lg">
-                        <a className="text-white" href={this.props.results.url}>
+                        <a className="text-white" href={"https://www.target.com" + this.props.results.url}>
                             Buy it!
                         </a>
                     </div>
