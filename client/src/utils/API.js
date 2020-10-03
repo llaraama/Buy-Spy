@@ -45,11 +45,11 @@ export default {
         return axios.get("api/favorites");
     },
 
-    removeFavorites:function(){
+    removeFavorites: function(){
         return axios.delete("api/favorites/:id");
     },
 
-    addUser:function(userData){
+    addUser: function(userData){
         return axios.post("api/users",userData)
     },
 

@@ -16,8 +16,6 @@ state={
 componentDidMount(){
     API.getFavorites()
         .then(data =>{
-            console.log("this is it ")
-            console.log(data.data);
             this.setState({ dbResults: data.data})
         })
         .catch (err=> console.log(err))

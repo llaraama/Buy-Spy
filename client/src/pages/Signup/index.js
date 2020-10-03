@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import API from '../../utils/API';
 
-function Signup(){
+function Signup() {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-  
+
     const handleSubmit = e => {
-      e.preventDefault();
-      let tempUser={
-          username,password
-      }
-      console.log("tempuser below")
-      console.log(tempUser)
-      API.addUser(tempUser)
-      .then(res => {
-          console.log(res);
-      })
-      .catch(err => console.log(err));
-      console.log("username is " + username);
-      console.log("password is " + password);
+        e.preventDefault();
+        let tempUser = {
+            username, password
+        }
+
+        API.addUser(tempUser)
+            .then(res => {
+                console.log("yes");
+            })
+            .catch(err => console.log(err));
     };
 
     return (
@@ -30,22 +27,22 @@ function Signup(){
                             Username
                         </label>
                         <input onChange={e => setUsername(e.target.value)}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="username" type="text" placeholder="Username"/>
+                               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                               id="username" type="text" placeholder="Username"/>
                     </div>
                     <div className="mb-6">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                             Password
                         </label>
                         <input onChange={e => setPassword(e.target.value)}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password" type="password" placeholder="******************"/>
+                               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                               id="password" type="password" placeholder="******************"/>
                         <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
                     </div>
                     <div className="flex items-center justify-center">
-                        <button 
+                        <button
                             className="bg-primary hover:bg-teal-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit" >
+                            type="submit">
                             Sign up
                         </button>
                     </div>
@@ -57,6 +54,5 @@ function Signup(){
         </div>
     );
 }
-
 
 export default Signup;

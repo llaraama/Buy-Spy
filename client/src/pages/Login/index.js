@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import API from '../../utils/API';
 
-function Login () {
+function Login() {
     const [username, getUsername] = useState();
     const [password, getPassword] = useState();
+    const [errorForm, getErrorForm] = useState(false);
+    const history = useHistory();
 
     const handleSubmit = e => {
         e.preventDefault();
-        let data = { username, password }
+        let data = {username, password}
 
         API.loginUser(data)
             .then(res => {
+               history.push("/my-favorites")
             })
-            .catch(err => console.log(err));
+            .catch(res => getErrorForm(true))
     };
 
     return (
@@ -34,12 +38,14 @@ function Login () {
                         <input onChange={e => getPassword(e.target.value)}
                                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                id="password" type="password" placeholder="******************"/>
+                        <p className={errorForm ? "text-red-500 text-xs italic" : "hidden"}>Your password or email are
+                            incorrect.<p>Try again!</p></p>
                     </div>
                     <div className="flex items-center justify-center">
                         <a href="/my-favorites">
                             <button
                                 className="bg-primary hover:bg-teal-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="submit" >
+                                type="submit">
                                 Log in!
                             </button>
                         </a>

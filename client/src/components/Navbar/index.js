@@ -40,7 +40,7 @@ function Navbar(props) {
                     </li>
                 </ul>
             </div>
-            <div class="flex items-center">
+            <div className="flex items-center">
                 <Link to="/my-favorites"
                       className={location.pathname === "/my-favorites" ? "nav-link active" : "mt-4 lg:inline-block lg:mt-0 text-black hover:text-white text-primary"}>
                     My Favorites
