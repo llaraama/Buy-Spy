@@ -11,8 +11,9 @@ import Login from "./pages/Login";
 import Favorites from "./pages/Favorites";
 import "./style.css";
 
-class App extends Component {
 
+class App extends Component {
+    
     state = {
         favorites: 0
     };
@@ -20,6 +21,7 @@ class App extends Component {
     addFavorites = id => {
         this.setState({ favorites: this.state.favorites + 1 });
     }
+    
 
     render () {
         return (
