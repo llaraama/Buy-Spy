@@ -54,4 +54,5 @@ class WalmartCard extends Component {
         );
     }
 }
+
 export default WalmartCard;

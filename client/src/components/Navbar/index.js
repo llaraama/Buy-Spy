@@ -3,9 +3,7 @@ import {Link, useLocation} from "react-router-dom";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar(props) {
-
     const location = useLocation();
-
     return (
         <nav className="flex items-center justify-between flex-wrap bg-white p-6">
             <div className="flex items-center flex-shrink-0 text-white mr-5">

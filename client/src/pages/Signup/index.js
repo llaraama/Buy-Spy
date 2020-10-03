@@ -10,15 +10,11 @@ function Signup(){
       let tempUser={
           username,password
       }
-      console.log("tempuser below")
-      console.log(tempUser)
       API.addUser(tempUser)
       .then(res => {
           console.log(res);
       })
       .catch(err => console.log(err));
-      console.log("username is " + username);
-      console.log("password is " + password);
     };
 
     return (
@@ -57,6 +53,5 @@ function Signup(){
         </div>
     );
 }
-
 
 export default Signup;

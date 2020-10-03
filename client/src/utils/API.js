@@ -46,8 +46,6 @@ export default {
     },
 
     removeFavorites:function(id){
-        console.log("made it to removed")
-        console.log(id)
         return axios.delete("api/favorites/"+id);
 
     },

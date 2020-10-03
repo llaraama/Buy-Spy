@@ -8,7 +8,6 @@ import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
 
-
 class Laptop extends Component {
     state = {
         results: [],
@@ -37,9 +36,6 @@ class Laptop extends Component {
     };
 
     addFavoriteData = id => {
-
-        console.log(`Clicked: ${id}`)
-
         let foundFav = this.state.results.filter(item => {
             // logic to match item ID
             return item.itemId == id;
@@ -60,12 +56,6 @@ class Laptop extends Component {
           logo:WalmartLogo
         }
           
-        console.log("***********");
-        console.log(foundFav);
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
-
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempWalmartObj)
             .then(res => {
@@ -78,9 +68,6 @@ class Laptop extends Component {
     }
 
     addFavoriteData2 = id => {
-        console.log(`Clicked: ${id}`)
-        console.log("clicked amazon")
-
         let foundFavAmazon = this.state.amazonResults.filter(itemAmazon => {
             // logic to match item ID
             return itemAmazon.ASIN == id;
@@ -95,16 +82,10 @@ class Laptop extends Component {
             logo:AmazonLogo
 
           }
-          console.log(tempObj2)
-
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj2)
             .then(res => {
-                console.log("Item Saved");
                 console.log(res.data);
             })
             .catch(err => {
@@ -112,9 +93,6 @@ class Laptop extends Component {
             });
     }
     addFavoriteData3 = id => {
-        console.log(`Clicked: ${id}`)
-        console.log("clicked amazon")
-
         let foundFavTarget = this.state.targetResults.filter(item => {
             // logic to match item ID
             return item.tcin == id;
@@ -127,27 +105,17 @@ class Laptop extends Component {
             salePrice: foundFavTarget[0].price.formatted_current_price,
             productUrl:foundFavTarget[0].url,
             logo:TargetLogo
-
           }
-          console.log("this is target below")
-          console.log(tempObj3)
-          console.log(foundFavTarget)
-
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj3)
             .then(res => {
-                console.log("Item Saved");
                 console.log(res.data);
             })
             .catch(err => {
                 console.log(err);
             });
     }
-
 
     targetSearchItems = query => {
         API.targetSearchItems(query)
@@ -163,7 +131,6 @@ class Laptop extends Component {
                 let base = image.base_url
                 let guest = image.primary
                 let url = base + guest
-
                 item.targetImages = url
             })
             return item
@@ -214,7 +181,6 @@ class Laptop extends Component {
         )
     }
 }
-
 
 export default Laptop;
 
