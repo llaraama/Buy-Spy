@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const favoritesController = require("../../controllers/favoritesController");
 
-const userController=require("../../controllers/userController")
+
 
 // Matches with "/api/favorites"
 router.route("/")
@@ -12,7 +12,7 @@ router.route("/")
 // Matches with "/api/favorites/:id"
 router
   .route("/:id")
-  // .get(favoritesController.findById)
+  .get(favoritesController.findById)
   // .put(favoritesController.update)
   .delete(favoritesController.remove);
 
