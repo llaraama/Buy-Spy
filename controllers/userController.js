@@ -22,12 +22,13 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
   
-    create:function(userObject){
+    create:function(req,res){
         // We HASH our plain text PASSWORD before sending it to our DATABASE
-        userObject.body.password = bcrypt.hashSync(userObject.body.password, bcrypt.
+        console.log("made it to the controller")
+        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.
         genSaltSync(10), null);
-        db.User.create(userObject.body)
-        .then(dbModel=> console.log(dbModel))
+        db.User.create(req.body)
+        .then(dbModel => res.json(dbModel))
         .catch(err=>console.log(err));
     }
 }
