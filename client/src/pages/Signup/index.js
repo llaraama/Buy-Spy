@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import API from '../../utils/API';
+import {useHistory} from 'react-router-dom';
 
 function Signup(){
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-
+    const history = useHistory();
   
     const handleSubmit = e => {
       e.preventDefault();
@@ -13,8 +14,7 @@ function Signup(){
       }
       API.addUser(tempUser)
       .then(res => {
-          console.log("this is it")
-          console.log(res);
+          history.push("/my-favorites")
       })
       .catch(err => console.log(err));
     };
