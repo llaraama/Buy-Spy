@@ -2,6 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const logger = require("morgan");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -10,6 +11,8 @@ const passport = require("./config/passport");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(logger("dev"));
 
 // We need to use sessions to keep track of our user's login status
 app.use(
