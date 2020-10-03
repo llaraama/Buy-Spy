@@ -53,5 +53,4 @@ class AmazonCard extends Component {
     }
 }
 
-
 export default AmazonCard;
