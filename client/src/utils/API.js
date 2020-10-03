@@ -14,7 +14,6 @@ const parameters = { headers: {
         // placeholder for the target api
         "x-rapidapi-key": "none"
     }}
-    
 
 export default {
     searchItems: function(query) {
@@ -39,7 +38,6 @@ export default {
     },
 
     saveFavorites: function (favoritesData) {
-        console.log("made it to saved favorites")
         return axios.post("/api/favorites", favoritesData)
     },
 
@@ -48,18 +46,18 @@ export default {
     },
 
     removeFavorites:function(){
-        console.log("made it to removed")
         return axios.delete("api/favorites/:id");
     },
 
     addUser:function(userData){
-        console.log("made it to add user");
         return axios.post("api/users",userData)
     },
 
     targetSearchItems: function(keyword) {
         return axios.get(URL + keyword, parameters);
+    },
 
+    loginUser: function (userData) {
+        return axios.post("api/users/login",userData)
     }
 }
-

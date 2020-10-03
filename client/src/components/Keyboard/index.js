@@ -38,9 +38,6 @@ class Keyboard extends Component {
     };
 
     addFavoriteData = id => {
-
-        console.log(`Clicked: ${id}`)
-
         let foundFav = this.state.results.filter(item => {
             // logic to match item ID
             return item.itemId == id;
@@ -60,9 +57,6 @@ class Keyboard extends Component {
           productUrl: foundFav[0].productUrl,
           logo:WalmartLogo
         }
-          
-        console.log("***********");
-        console.log(foundFav);
 
         // update State of FAVS array
         // this.setState({ favs: foundFav });

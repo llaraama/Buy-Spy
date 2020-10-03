@@ -17,35 +17,30 @@ function Navbar(props) {
                     </svg>
                     <span className="font-semibold text-xl tracking-tight text-black">Buy-Spy</span>
                 </Link>
+                <ul className="flex mx-4">
+                    <li className="mr-6">
+                        <Link
+                            className={location.pathname === "/desktop" ? "nav-link active" : "text-teal-400 hover:underline"}
+                            to="/desktop">Desk</Link>
+                    </li>
+                    <li className="mr-6">
+                        <Link
+                            className={location.pathname === "/laptop" ? "nav-link active" : "text-teal-400 hover:underline"}
+                            to="/laptop">Laptop</Link>
+                    </li>
+                    <li className="mr-6">
+                        <Link
+                            className={location.pathname === "/mouse" ? "nav-link active" : "text-teal-400 hover:underline"}
+                            to="/mouse">Mouse</Link>
+                    </li>
+                    <li className="mr-6">
+                        <Link
+                            className={location.pathname === "/keyboard" ? "nav-link active" : "text-teal-400 hover:underline"}
+                            to="/keyboard">Keyboard</Link>
+                    </li>
+                </ul>
             </div>
-            <ul className="flex">
-                <li className="mr-6">
-                    <Link
-                        className={location.pathname === "/desktop" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/desktop">Desk</Link>
-                </li>
-                <li className="mr-6">
-                    <Link
-                        className={location.pathname === "/laptop" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/laptop">Laptop</Link>
-                </li>
-                <li className="mr-6">
-                    <Link
-                        className={location.pathname === "/mouse" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/mouse">Mouse</Link>
-                </li>
-                <li className="mr-6">
-                    <Link
-                        className={location.pathname === "/keyboard" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/keyboard">Keyboard</Link>
-                </li>
-                <li className="mr-6">
-                    <Link
-                        className={location.pathname === "/signup" ? "nav-link active" : "text-teal-400 hover:underline"}
-                        to="/signup">Signup</Link>
-                </li>
-            </ul>
-            <div className="w-full block flex-grow flex lg:justify-end lg:w-auto">
+            <div class="flex items-center">
                 <Link to="/my-favorites"
                       className={location.pathname === "/my-favorites" ? "nav-link active" : "mt-4 lg:inline-block lg:mt-0 text-black hover:text-white text-primary"}>
                     My Favorites
@@ -55,9 +50,17 @@ function Navbar(props) {
                           d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z"></path>
                 </svg>
                 <span className="text-teal-400">{props.favorites}</span>
-            </div>
-        </nav>
-    );
+                <Link
+                    className={location.pathname === "/login" ? "nav-link login-active font-bold mx-4" : "text-primary hover:underline mx-4"}
+                    to="/login">Login</Link>
+                <button
+                    className="bg-teal-400 hover:bg-teal-400 text-white font-bold p-2 rounded">
+                    <Link
+                        to="/signup">Signup</Link>
+                </button>
+        </div>
+</nav>
+);
 }
 
 export default Navbar;

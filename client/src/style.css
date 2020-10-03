@@ -59,3 +59,12 @@ html {
 .fill-teal {
     fill: #4fd1c5;
 }
+
+.purple-hover:hover {
+    background-color: #4B5286;
+}
+
+.login-active {
+    color: #4fd1c5;
+    text-decoration: underline;
+}
