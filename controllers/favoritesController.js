@@ -28,25 +28,56 @@ module.exports={
         console.log(req.body);
       },
 
-      remove:function(req,res){
-        console.log("made it to delete")
-        let removobj=this.itemid
 
+
+
+        remove:function(req,res){
+        console.log("made it to delete")
+        // let removobj=this.id
+        console.log("check on params")
+        console.log(req.params.id)
         db.Favorites
-        .remove(removobj)
-        .then(dbModel=>res.json(dbModel)
-        )
+        .deleteOne({itemId:req.params.id})
+        .then(dbModel=>res.json(dbModel))
         .catch(err=>res.status(422).json(err));
         console.log("Hit remove Route /api/favorites/:id");
-        console.log(req.body)
-      }
+        console.log({ _id: req.params.id} )
+      },
 
-      // findById: function(req, res){
+    
+      // remove:function(req,res){
+      //   console.log("made it to delete")
+      //   let removobj=this.itemid
+      //   console.log("this is the removed item on the backend")
+      //   console.log({itemId:req.params.id})
       //   db.Favorites
-      //   .findById(req.params.id)
-      //   .then(dbModel=>res.json(dbModel))
+      //   .remove(removobj)
+      //   .then(dbModel=>res.json(dbModel)
+      //   )
       //   .catch(err=>res.status(422).json(err));
-      // },
+      //   console.log("Hit remove Route /api/favorites/:id");
+      //   console.log(req.body)
+      // }
+
+      // remove:function(req,res){
+      //   console.log("made it to delete")
+      //   let removobj=this.itemid
+
+      //   db.Favorites
+      //   .remove(removobj)
+      //   .then(dbModel=>res.json(dbModel)
+      //   )
+      //   .catch(err=>res.status(422).json(err));
+      //   console.log("Hit remove Route /api/favorites/:id");
+      //   console.log(req.body)
+      // }
+
+      findById: function(req, res){
+        db.Favorites
+        .findById(req.params.id)
+        .then(dbModel=>res.json(dbModel))
+        .catch(err=>res.status(422).json(err));
+      },
 
       // remove:function(req,res){
       //   db.Favorites
