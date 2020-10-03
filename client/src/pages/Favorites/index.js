@@ -8,9 +8,10 @@ import FavoritesCard from "../../components/FavoritesCard"
 class Favorites extends Component{
   
 state={
-    dbResults:[]
+    dbResults:[],
+
    
- 
+
 
 };
 componentDidMount(){
@@ -35,21 +36,34 @@ componentDidMount(){
 
 removeFavoritesData=id=>{
     let foundItem=this.state. dbResults.filter(itemRemoval=>{
-        return itemRemoval.itemId==id;
+        
+       
+        return itemRemoval.itemId!==id;
+
+        
     });
 
-    let tempRemove = {
-        itemId: foundItem[0].itemId,
-        image: foundItem[0].image,
-        name: foundItem[0].name,
-        salePrice: foundItem[0].salePrice,
-        productUrl: foundItem[0].productUrl,
-        logo:foundItem[0].logo
-      }
-      console.log("this is the item getting deleted")
-      console.log(tempRemove)
-     
-      API.removeFavorites(tempRemove)
+    this.setState({
+        dbResults:foundItem
+    })
+
+
+    console.log("checking removal array")
+    console.log(foundItem)
+    // console.log("below is what is selected to remove ")
+    // console.log(foundItem)
+    // let tempRemove = {
+    //     itemId: foundItem[0].itemId,
+    //     image: foundItem[0].image,
+    //     name: foundItem[0].name,
+    //     salePrice: foundItem[0].salePrice,
+    //     productUrl: foundItem[0].productUrl,
+    //     logo:foundItem[0].logo
+    //   }
+    //   console.log("this is the item getting deleted")
+    //   console.log(tempRemove)
+
+      API.removeFavorites(id)
       .then(res=>{
           console.log("Item removed");
           console.log(res.data);
@@ -59,7 +73,6 @@ removeFavoritesData=id=>{
       })
 
     }
-
 
 render(){
     return (
