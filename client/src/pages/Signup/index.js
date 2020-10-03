@@ -4,6 +4,7 @@ import API from '../../utils/API';
 function Signup(){
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+
   
     const handleSubmit = e => {
       e.preventDefault();
@@ -12,6 +13,7 @@ function Signup(){
       }
       API.addUser(tempUser)
       .then(res => {
+          console.log("this is it")
           console.log(res);
       })
       .catch(err => console.log(err));
