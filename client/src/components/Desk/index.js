@@ -36,9 +36,6 @@ class Desk extends Component {
     };
 
     addFavoriteData = id => {
-
-        console.log(`Clicked: ${id}`)
-
         let foundFav = this.state.results.filter(item => {
             // logic to match item ID
             return item.itemId == id;
@@ -49,7 +46,6 @@ class Desk extends Component {
         if(foundFav){
             saleprice = "$" +  foundFav[0].salePrice
         }
-
           let tempWalmartObj = {
           itemId: foundFav[0].itemId,
           image: foundFav[0].largeImage,
@@ -58,11 +54,6 @@ class Desk extends Component {
           productUrl: foundFav[0].productUrl,
           logo:WalmartLogo
         }
-
-        console.log("***********");
-        console.log(foundFav);
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempWalmartObj)
@@ -76,9 +67,6 @@ class Desk extends Component {
     }
 
     addFavoriteData2 = id => {
-        console.log(`Clicked: ${id}`)
-        console.log("clicked amazon")
-
         let foundFavAmazon = this.state.amazonResults.filter(itemAmazon => {
             // logic to match item ID
             return itemAmazon.ASIN == id;
@@ -91,12 +79,7 @@ class Desk extends Component {
             salePrice: foundFavAmazon[0].price,
             productUrl:foundFavAmazon[0].detailPageURL,
             logo:AmazonLogo
-
           }
-          console.log(tempObj2)
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj2)
@@ -109,14 +92,11 @@ class Desk extends Component {
             });
     }
     addFavoriteData3 = id => {
-        console.log(`Clicked: ${id}`)
-        console.log("clicked amazon")
-
         let foundFavTarget = this.state.targetResults.filter(item => {
             // logic to match item ID
             return item.tcin == id;
         });
-
+        
         let tempObj3 = {
             itemId: foundFavTarget[0].tcin,
             image: foundFavTarget[0].targetImages,
@@ -126,12 +106,6 @@ class Desk extends Component {
             logo:TargetLogo
 
           }
-          console.log("this is target below")
-          console.log(tempObj3)
-          console.log(foundFavTarget)
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj3)

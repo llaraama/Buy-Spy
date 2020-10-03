@@ -16,7 +16,6 @@ class Keyboard extends Component {
         targetResults: [],
     };
 
-
     // When this component mounts, search for the item "keyboard"
     componentDidMount() {
         this.searchItems("keyboard");
@@ -38,9 +37,6 @@ class Keyboard extends Component {
     };
 
     addFavoriteData = id => {
-
-        console.log(`Clicked: ${id}`)
-
         let foundFav = this.state.results.filter(item => {
             // logic to match item ID
             return item.itemId == id;
@@ -61,12 +57,6 @@ class Keyboard extends Component {
           logo:WalmartLogo
         }
           
-        console.log("***********");
-        console.log(foundFav);
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
-
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempWalmartObj)
             .then(res => {
@@ -79,9 +69,6 @@ class Keyboard extends Component {
     }
 
     addFavoriteData2 = id => {
-        console.log(`Clicked: ${id}`)
-        console.log("clicked amazon")
-
         let foundFavAmazon = this.state.amazonResults.filter(itemAmazon => {
             // logic to match item ID
             return itemAmazon.ASIN == id;
@@ -96,10 +83,6 @@ class Keyboard extends Component {
             logo:AmazonLogo
 
           }
-          console.log(tempObj2)
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj2)
@@ -112,9 +95,6 @@ class Keyboard extends Component {
             });
     }
     addFavoriteData3 = id => {
-        console.log(`Clicked: ${id}`)
-        console.log("clicked amazon")
-
         let foundFavTarget = this.state.targetResults.filter(item => {
             // logic to match item ID
             return item.tcin == id;
@@ -127,14 +107,7 @@ class Keyboard extends Component {
             salePrice: foundFavTarget[0].price.formatted_current_price,
             productUrl:foundFavTarget[0].url,
             logo:TargetLogo
-
           }
-          console.log("this is target below")
-          console.log(tempObj3)
-          console.log(foundFavTarget)
-
-        // update State of FAVS array
-        // this.setState({ favs: foundFav });
 
         // send OBJECT to backend route (server.js)
         API.saveFavorites(tempObj3)
@@ -161,7 +134,6 @@ class Keyboard extends Component {
                 let base = image.base_url
                 let guest = image.primary
                 let url = base + guest
-
                 item.targetImages = url
             })
             return item

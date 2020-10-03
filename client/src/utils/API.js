@@ -39,7 +39,6 @@ export default {
     },
 
     saveFavorites: function (favoritesData) {
-        console.log("made it to saved favorites")
         return axios.post("/api/favorites", favoritesData)
     },
 
@@ -48,14 +47,11 @@ export default {
     },
 
     removeFavorites:function(id){
-        console.log("made it to removed")
-        console.log(id)
         return axios.delete("api/favorites/"+id);
     
     },
 
     addUser:function(userData){
-        console.log("made it to add user");
         return axios.post("api/users",userData)
     },
 

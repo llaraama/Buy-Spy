@@ -47,4 +47,5 @@ class FavoritesCard extends Component {
         );
     }
 }
+
 export default FavoritesCard;
