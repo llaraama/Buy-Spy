@@ -6,7 +6,16 @@ class TargetCard extends Component {
     }
 
     changeToActive = () => {
-        this.setState({ active: true })
+        if  (this.state.active === false) {
+            this.setState({active: true})
+        } else {
+            this.setState({active: false})
+        }
+    }
+
+    onclick = () => {
+        this.props.addFavoriteData2(this.props.amazonResults.ASIN)
+        this.changeToActive()
     }
 
     render() {
@@ -18,14 +27,10 @@ class TargetCard extends Component {
                     <img className="w-4/5 mx-auto" src={this.props.results.targetImages} alt="item"/>
                     <div className="absolute top-0 right-0 h-8 w-8">
                         <div className="absolute bottom-0 left-0">
-                            <div className=" flex justify-end"
+                            <div className={this.state.active ? "flex justify-end text-primary" : "flex justify-end text-teal-400"}
                                  onClick={() => this.props.addFavorites(this.props.results.tcin)}>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
-                                    <path id="heart"
-                                          onClick={() => this.props.addFavoriteData3(this.props.results.tcin)}
-                                          d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z">
-                                    </path>
-                                </svg>
+                                <i id="heart" onClick={this.onclick}
+                                   className="fas fa-heart"></i>
                             </div>
                         </div>
                     </div>
