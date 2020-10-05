@@ -16,11 +16,11 @@ function Navbar(props) {
                     </svg>
                     <span className="font-semibold text-xl tracking-tight text-black">Buy-Spy</span>
                 </Link>
-                <ul className="flex mx-4">
+                <ul className={location.pathname === "/desk" | location.pathname === "/laptop" | location.pathname === "/mouse" | location.pathname ==="/keyboard" ? "hidden" : "flex mx-4" }>
                     <li className="mr-6">
                         <Link
-                            className={location.pathname === "/desktop" ? "nav-link active" : "text-teal-400 hover:underline"}
-                            to="/desktop">Desk</Link>
+                            className={location.pathname === "/desk" ? "nav-link active" : "text-teal-400 hover:underline"}
+                            to="/desk">Desk</Link>
                     </li>
                     <li className="mr-6">
                         <Link

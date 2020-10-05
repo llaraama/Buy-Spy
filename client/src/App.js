@@ -39,7 +39,7 @@ class App extends Component {
                 <div className="wave-container">
                     <Navbar favorites={this.state.favorites} auth={this.state.userAuth} logout={this.logout}/>
                     <Route
-                        path='/desktop'
+                        path='/desk'
                         render={() => (
                             <Desk addFavorites={this.addFavorites}/>
                         )}
