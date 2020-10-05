@@ -8,7 +8,7 @@ function Menu() {
         <div>
             <main className="menu flex flex-wrap justify-center static">
                 <form className="mr-8">
-                    <div className="mt-12">
+                    <div className="mt-12 flex lg:block">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                             Search your own item
                         </label>

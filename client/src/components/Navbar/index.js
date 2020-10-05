@@ -6,7 +6,7 @@ function Navbar(props) {
     const location = useLocation();
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-white p-6">
+        <nav className="lg:flex block items-center justify-between flex-wrap bg-white p-6">
             <div className="flex items-center flex-shrink-0 text-white mr-5">
                 <Link className="flex" to="/">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 mr-2 icon-tag">
@@ -14,7 +14,7 @@ function Navbar(props) {
                               d="M2.59 13.41A1.98 1.98 0 0 1 2 12V7a5 5 0 0 1 5-5h4.99c.53 0 1.04.2 1.42.59l8 8a2 2 0 0 1 0 2.82l-8 8a2 2 0 0 1-2.82 0l-8-8zM7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
                         <path fill="#c9cbda" d="M12 18l6-6-4-4-6 6.01L12 18z"></path>
                     </svg>
-                    <span className="font-semibold text-xl tracking-tight text-black">Buy-Spy</span>
+                    <span className="font-semibold lg:text-xl text-sm tracking-tight text-black">Buy-Spy</span>
                 </Link>
                 <ul className={location.pathname === "/desk" | location.pathname === "/laptop" | location.pathname === "/mouse" | location.pathname ==="/keyboard" | location.pathname ==="/chair" ? "hidden" : "flex mx-4" }>
                     <li className="mr-6">
@@ -44,7 +44,7 @@ function Navbar(props) {
                     </li>
                 </ul>
             </div>
-            <div className="flex items-center">
+            <div className="flex justify-end">
                 <div className={props.auth ? "flex" : "hidden"}>
                     <Link to="/my-favorites"
                           className={location.pathname === "/my-favorites" ? "text-primary mr-3" : "text-teal-400 mr-3"}>
