@@ -36,6 +36,11 @@ function Navbar(props) {
                             className={location.pathname === "/keyboard" ? "nav-link active" : "text-teal-400 hover:underline"}
                             to="/keyboard">Keyboard</Link>
                     </li>
+                    <li className="mr-6">
+                        <Link
+                            className={location.pathname === "/keyboard" ? "nav-link active" : "text-teal-400 hover:underline"}
+                            to="/chair">Chair</Link>
+                    </li>
                 </ul>
             </div>
             <div class="flex items-center">
