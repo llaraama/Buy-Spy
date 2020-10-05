@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import API from '../../utils/API';
 import {useHistory} from 'react-router-dom';
 
-function Signup(){
+function Signup(props) {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const history = useHistory();
   
     const handleSubmit = e => {
       e.preventDefault();
+
       let tempUser={
           username,password
       }
+
       API.addUser(tempUser)
       .then(res => {
+          sessionStorage.setItem('auth', true)
+          sessionStorage.setItem('id', JSON.stringify(res.data._id))
+          props.auth()
           history.push("/my-favorites")
       })
       .catch(err => console.log(err));

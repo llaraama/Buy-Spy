@@ -59,7 +59,6 @@ class Desk extends Component {
         API.saveFavorites(tempWalmartObj)
             .then(res => {
                 console.log("Item Saved");
-                console.log(res.data);
             })
             .catch(err => {
                 console.log(err);

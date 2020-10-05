@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from 'react';
 import {Link, useLocation} from "react-router-dom";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar(props) {
     const location = useLocation();
+
     return (
         <nav className="flex items-center justify-between flex-wrap bg-white p-6">
             <div className="flex items-center flex-shrink-0 text-white mr-5">
@@ -38,27 +39,31 @@ function Navbar(props) {
                     </li>
                 </ul>
             </div>
-            <div class="flex items-center">
-                <Link to="/my-favorites"
-                      className={location.pathname === "/my-favorites" ? "nav-link active" : "mt-4 lg:inline-block lg:mt-0 text-black hover:text-white text-primary"}>
-                    My Favorites
-                </Link>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
-                    <path fill="#4fd1c5"
-                          d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z"></path>
-                </svg>
-                <span className="text-teal-400">{props.favorites}</span>
-                <Link
-                    className={location.pathname === "/login" ? "nav-link login-active font-bold mx-4" : "text-primary hover:underline mx-4"}
-                    to="/login">Login</Link>
-                <button
-                    className="bg-teal-400 hover:bg-teal-400 text-white font-bold p-2 rounded">
+            <div className="flex items-center">
+                <div className={props.auth ? "flex" : "hidden"}>
+                    <Link to="/my-favorites"
+                          className={location.pathname === "/my-favorites" ? "text-primary mr-3" : "text-teal-400 mr-3"}>
+                        Favorites
+                    </Link>
+                    <i className={location.pathname === "/my-favorites" ? "fas fa-heart text-primary" : "fas fa-heart text-teal-400 text-teal-400"}></i>
+                    <span className={location.pathname === "/my-favorites" ? "text-primary" : "text-teal-400"}>0</span>
+                    <a href="/">
+                        <i className="fas fa-sign-out-alt text-primary cursor-pointer ml-4" onClick={props.logout}></i>
+                    </a>
+                </div>
+                <div className={props.auth ? "hidden" : "flex"}>
                     <Link
-                        to="/signup">Signup</Link>
-                </button>
-        </div>
-</nav>
-);
+                        className={location.pathname === "/login" ? "nav-link login-active font-bold mx-4 mt-2" : "text-primary hover:underline mx-4 mt-2"}
+                        to="/login">Login</Link>
+                    <button
+                        className="bg-teal-400 hover:bg-teal-400 text-white font-bold p-2 rounded">
+                        <Link
+                            to="/signup">Signup</Link>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    );
 }
 
 export default Navbar;
