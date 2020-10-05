@@ -24,7 +24,6 @@ module.exports = {
   
     create:function(req,res){
         // We HASH our plain text PASSWORD before sending it to our DATABASE
-        console.log("made it to the controller")
         req.body.password = bcrypt.hashSync(req.body.password, bcrypt.
         genSaltSync(10), null);
         db.User.create(req.body)

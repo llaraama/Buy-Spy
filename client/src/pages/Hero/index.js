@@ -7,7 +7,7 @@ function Hero() {
                 <div className="flex">
                     <div className="w-1/2">
                         <div className="pt-4">
-                            <h1 className="text-primary text-5xl">Your next item</h1>
+                            <h1 className="text-primary text-5xl">Find your next item</h1>
                             <h3 className="text-black">at the lowest price</h3>
                             <button
                                 className="bg-teal-400 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded mt-4">
