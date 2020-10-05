@@ -31,7 +31,7 @@ Coming soon ...
   * Laura Lara: https://github.com/llaraama
   * Jessica Moran: https://github.com/JessMoran
   * Brenden Forbis: https://github.com/brendog95
-  * Jonathan de los santos: https://github.com/jdelossantos47
+
   
   ## License 
   MIT license.
