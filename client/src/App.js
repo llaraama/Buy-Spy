@@ -31,7 +31,6 @@ class App extends Component {
 
     logout = () => {
         let auth = sessionStorage.setItem('auth', "")
-        console.log(auth)
     }
 
     render() {
@@ -42,37 +41,37 @@ class App extends Component {
                     <Route
                         path='/desk'
                         render={() => (
-                            <Desk addFavorites={this.addFavorites}/>
+                            <Desk addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
                         )}
                     />
                     <Route
                         path='/laptop'
                         render={() => (
-                            <Laptop addFavorites={this.addFavorites}/>
+                            <Laptop addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
                         )}
                     />
                     <Route
                         path='/mouse'
                         render={() => (
-                            <Mouse addFavorites={this.addFavorites}/>
+                            <Mouse addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
                         )}
                     />
                     <Route
                         path='/keyboard'
                         render={() => (
-                            <Keyboard addFavorites={this.addFavorites}/>
+                            <Keyboard addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
                         )}
                     />
                     <Route
                         path='/chair'
                         render={() => (
-                            <Chair addFavorites={this.addFavorites}/>
+                            <Chair addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
                         )}
                     />
                     <Route 
                         path="/login"
                         render={() => (
-                            <Login auth={this.updateAuth}/>
+                            <Login auth={this.updateAuth} auth={this.state.userAuth} logout={this.logout}/>
                         )}/>
                     <Route
                         path="/signup"

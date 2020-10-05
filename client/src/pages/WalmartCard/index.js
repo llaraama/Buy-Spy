@@ -26,7 +26,7 @@ class WalmartCard extends Component {
                 key={this.props.results.itemId}>
                 <div className="relative">
                     <img className="w-4/5 mx-auto" src={this.props.results.largeImage} alt="Sunset in the mountains"/>
-                    <div className="absolute top-0 right-0 h-8 w-8">
+                    <div className={this.props.auth ? "absolute top-0 right-0 h-8 w-8" : "hidden"}>
                         <div className="absolute bottom-0 left-0">
                             <div className={this.state.active ? "flex justify-end text-primary" : "flex justify-end text-teal-400"}
                                  onClick={() => this.props.addFavorites(this.props.results.itemId)}>

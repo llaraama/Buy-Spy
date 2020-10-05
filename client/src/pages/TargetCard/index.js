@@ -25,7 +25,7 @@ class TargetCard extends Component {
                 key={this.props.results.tcin}>
                 <div className="relative">
                     <img className="w-4/5 mx-auto" src={this.props.results.targetImages} alt="item"/>
-                    <div className="absolute top-0 right-0 h-8 w-8">
+                    <div className={this.props.auth ? "absolute top-0 right-0 h-8 w-8" : "hidden"}>
                         <div className="absolute bottom-0 left-0">
                             <div className={this.state.active ? "flex justify-end text-primary" : "flex justify-end text-teal-400"}
                                  onClick={() => this.props.addFavorites(this.props.results.tcin)}>
@@ -35,8 +35,8 @@ class TargetCard extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="p-5">
-                    <div className="p-5 flex justify-center">
+                <div className="px-5 pb-5 pt-0">
+                    <div className="flex justify-center p-5">
                         <img className="w-32" src="target.png" alt="target-logo"/>
                     </div>
                     <div className="px-6">
