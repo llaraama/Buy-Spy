@@ -30,7 +30,8 @@ class App extends Component {
     }
 
     logout = () => {
-        let auth = sessionStorage.setItem('auth', "")
+        sessionStorage.setItem('auth', "")
+        sessionStorage.setItem('id', "")
     }
 
     render() {
@@ -71,7 +72,7 @@ class App extends Component {
                     <Route 
                         path="/login"
                         render={() => (
-                            <Login auth={this.updateAuth} auth={this.state.userAuth} logout={this.logout}/>
+                            <Login auth={this.updateAuth} logout={this.logout}/>
                         )}/>
                     <Route
                         path="/signup"

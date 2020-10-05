@@ -17,6 +17,7 @@ function Login (props) {
             .then(res => {
                 sessionStorage.setItem('auth', true)
                 sessionStorage.setItem('id', JSON.stringify(res.data._id))
+                console.log(res, "aquí")
                 props.auth()
                 history.push("/my-favorites")
             })
