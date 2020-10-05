@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import API from '../../utils/API';
 
-function Login () {
+function Login (props) {
     const [username, getUsername] = useState();
     const [password, getPassword] = useState();
     const [errorForm, getErrorForm] = useState(false);
     const history = useHistory();
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -14,7 +15,10 @@ function Login () {
 
         API.loginUser(data)
             .then(res => {
-               history.push("/my-favorites")
+                sessionStorage.setItem('auth', true)
+                sessionStorage.setItem('id', JSON.stringify(res.data._id))
+                props.auth()
+                history.push("/my-favorites")
             })
             .catch(res => getErrorForm(true))
     };
@@ -38,8 +42,9 @@ function Login () {
                         <input onChange={e => getPassword(e.target.value)}
                                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                id="password" type="password" placeholder="******************"/>
-                        <p className={errorForm ? "text-red-500 text-xs italic" : "hidden"}>Your password or email are
-                            incorrect.<p>Try again!</p></p>
+                        <p className={errorForm ? "text-red-500 text-xs italic" : "hidden"}>Your password or username are
+                            incorrect.</p>
+                        <p className={errorForm ? "text-red-500 text-xs italic" : "hidden"}>Try again!</p>
                     </div>
                     <div className="flex items-center justify-center">
                         <a href="/my-favorites">
