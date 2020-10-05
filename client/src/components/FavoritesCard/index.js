@@ -2,7 +2,6 @@ import React, {Component} from "react";
 
 
 class FavoritesCard extends Component {
-
     state = {
         active: false
     }
@@ -13,34 +12,24 @@ class FavoritesCard extends Component {
 
     render() {
         return (
-            <div
-                className="mt-8 mx-4 lg:w-1/4 md:1/2 w-full bg-white rounded max-w-xs shadow-lg select-none overflow-hidden"
-                key={this.props.results.itemId}>
-                <div className="px-5 pt-5">
-                    <div className=" flex justify-end">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 icon-heart">
-                            <path id="heart" 
-                              onClick={() => this.props.removeFavoritesData(this.props.results.itemId)} 
-                                  d="M12.88 8.88a3 3 0 1 1 4.24 4.24l-4.41 4.42a1 1 0 0 1-1.42 0l-4.41-4.42a3 3 0 1 1 4.24-4.24l.88.88.88-.88z">
-                                  </path>
-                        </svg>
+            <div className="max-w-lg h-64 w-1/3 lg:flex mx-5 mt-20" key={this.props.results.itemId}>
+                <img
+                    className="w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+                    title="Woman holding a mug" src={this.props.results.image}/>
+                <div
+                    className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <i className="fas fa-heart text-primary text-right cursor-pointer" id="heart" onClick={() => this.props.removeFavoritesData(this.props.results.itemId)}></i>
+                    <div className="my-5 text-left">
+                        <div className="text-gray-900 mb-2">{this.props.results.name.substr(0, 40)}</div>
+                        <p className="text-gray-700 text-xl font-bold">{this.props.results.salePrice}</p>
+                        <div className="mt-5">
+                            <a className="text-primary font-bold hover:underline mt-" href={this.props.results.productUrl}>
+                                Buy it!
+                            </a>
+                        </div>
                     </div>
-                    <img className="w-4/5 mx-auto" src={this.props.results.image} alt="Sunset in the mountains"/>
-                    <div className="px-6 p-4 flex justify-center">
-                        <img className="w-40" src={this.props.results.logo} alt={this.props.results.logo}/>
-                    </div>
-                    <div className="px-6 pt-4">
-                        <ul className="text-left">
-                            <li className="font-bold text-xl mb-2">{this.props.results.name.substr(0, 40)}</li>
-                            <li className="text-xl mt-4">{this.props.results.salePrice}</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="flex justify-end">
-                    <div className="bg-primary p-2 w-1/4 text-center rounded-tl-lg">
-                        <a className="text-white" href={this.props.results.productUrl}>
-                            Buy it!
-                        </a>
+                    <div className="flex justify-end">
+                        <img className="w-20" src={this.props.results.logo} alt={this.props.results.logo}/>
                     </div>
                 </div>
             </div>

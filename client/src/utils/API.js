@@ -25,7 +25,7 @@ export default {
                 "content-type":"application/octet-stream",
                 "x-rapidapi-host":"amazon-price1.p.rapidapi.com",
                 // placeholder for the amazon api
-                "x-rapidapi-key":process.env.REACT_APP_AMAZON_API_KEY,
+                "x-rapidapi-key": process.env.REACT_APP_AMAZON_API_KEY,
                 "useQueryString":true
             },
             params: {

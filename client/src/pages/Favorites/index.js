@@ -4,9 +4,10 @@ import API from "../../utils/API"
 // import AmazonCard from "../AmazonCard"
 import FavoritesCard from "../../components/FavoritesCard"
 
-class Favorites extends Component {
-    state = {
-        dbResults: [],
+
+class Favorites extends Component{
+    state={
+        dbResults:[],
     };
 
     componentDidMount() {
