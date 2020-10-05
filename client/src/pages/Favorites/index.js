@@ -40,7 +40,7 @@ class Favorites extends Component{
 
     render(){
         return (
-            <div className="text-center my-32">
+            <div className="text-center mb-32">
                 <main className="mt-5">
                     <div className="flex flex-wrap justify-center">
                         {this.state.dbResults.map(item => {

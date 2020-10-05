@@ -12,7 +12,7 @@ class FavoritesCard extends Component {
 
     render() {
         return (
-            <div className="max-w-lg h-64 w-1/3 lg:flex mx-5" key={this.props.results.itemId}>
+            <div className="max-w-lg h-64 w-1/3 lg:flex mx-5 mt-20" key={this.props.results.itemId}>
                 <img
                     className="w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
                     title="Woman holding a mug" src={this.props.results.image}/>
