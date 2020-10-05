@@ -7,7 +7,8 @@ const favoritesSchema = new Schema({
   name:{type: String, required: true},
   salePrice:{type: String, required: true},
   productUrl:{type: String, required: true},
-  logo:{type: String, required:true}
+  logo:{type: String, required:true},
+  userid:{type: String, required:true}
 });
 
 const Favorites = mongoose.model("Favorties", favoritesSchema);

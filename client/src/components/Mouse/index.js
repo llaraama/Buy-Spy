@@ -46,13 +46,15 @@ class Mouse extends Component {
         if(foundFav){
             saleprice = "$" +  foundFav[0].salePrice
         }
-          let tempWalmartObj = {
-          itemId: foundFav[0].itemId,
-          image: foundFav[0].largeImage,
-          name: foundFav[0].name,
-          salePrice: saleprice,
-          productUrl: foundFav[0].productUrl,
-          logo:WalmartLogo
+        let currentUser=sessionStorage.getItem('id')
+        let tempWalmartObj = {
+        itemId: foundFav[0].itemId,
+        image: foundFav[0].largeImage,
+        name: foundFav[0].name,
+        salePrice: saleprice,
+        productUrl: foundFav[0].productUrl,
+        logo:WalmartLogo,
+        userid:currentUser
         }
           
         // send OBJECT to backend route (server.js)
@@ -72,13 +74,15 @@ class Mouse extends Component {
             return itemAmazon.ASIN == id;
         });
 
+        let currentUser=sessionStorage.getItem('id')
         let tempObj2 = {
             itemId: foundFavAmazon[0].ASIN,
             image: foundFavAmazon[0].imageUrl,
             name: foundFavAmazon[0].title,
             salePrice: foundFavAmazon[0].price,
             productUrl:foundFavAmazon[0].detailPageURL,
-            logo:AmazonLogo
+            logo:AmazonLogo,
+            userid:currentUser
           }
     
 
@@ -98,13 +102,16 @@ class Mouse extends Component {
             return item.tcin == id;
         });
 
+        let currentUser=sessionStorage.getItem('id')
         let tempObj3 = {
             itemId: foundFavTarget[0].tcin,
             image: foundFavTarget[0].targetImages,
             name: foundFavTarget[0].title,
             salePrice: foundFavTarget[0].price.formatted_current_price,
             productUrl:foundFavTarget[0].url,
-            logo:TargetLogo
+            logo:TargetLogo,
+            userid:currentUser
+
           }
 
         // send OBJECT to backend route (server.js)
