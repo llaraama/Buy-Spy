@@ -5,6 +5,7 @@ import Desk from "./components/Desk";
 import Laptop from "./components/Laptop";
 import Mouse from "./components/Mouse";
 import Keyboard from "./components/Keyboard";
+import Chair from "./components/Chair";
 import Hero from "./pages/Hero";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -63,6 +64,12 @@ class App extends Component {
                         )}
                     />
                     <Route
+                        path='/chair'
+                        render={() => (
+                            <Chair addFavorites={this.addFavorites}/>
+                        )}
+                    />
+                    <Route 
                         path="/login"
                         render={() => (
                             <Login auth={this.updateAuth}/>
