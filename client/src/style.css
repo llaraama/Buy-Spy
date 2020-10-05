@@ -10,6 +10,15 @@ html {
     box-sizing: inherit;
 }
 
+.group:hover .group-hover\:text-gray-700 {
+    color: #4a5568;
+}
+
+.group:hover .group-hover\:text-white {
+    color: #fff;
+}
+
+
 .wave-container {
     position: relative;
     background: #fff;
@@ -36,6 +45,10 @@ html {
 }
 
 .bg-primary {
+    background: #4B5286;
+}
+
+.hover-bg-primary:hover {
     background: #4B5286;
 }
 

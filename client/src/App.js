@@ -29,7 +29,7 @@ class App extends Component {
                 <div className="wave-container">
                     <Navbar favorites={this.state.favorites}/>
                     <Route
-                        path='/desktop'
+                        path='/desk'
                         render={() => (
                             <Desk addFavorites={this.addFavorites}/>
                         )}
