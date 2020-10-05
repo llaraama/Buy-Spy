@@ -158,7 +158,9 @@ class Mouse extends Component {
                                     results={item} 
                                     key={item.itemId} 
                                     addFavorites={this.props.addFavorites}
-                                    addFavoriteData={this.addFavoriteData}/>
+                                    addFavoriteData={this.addFavoriteData}
+                                    auth={this.props.auth}
+                                    logout={this.props.logout}/>
                             )
                         })}
                     </div>
@@ -169,7 +171,9 @@ class Mouse extends Component {
                                 amazonResults= {itemAmazon} 
                                 key={itemAmazon.asin} 
                                 addFavorites={this.props.addFavorites}
-                                addFavoriteData2={this.addFavoriteData2}/>
+                                addFavoriteData2={this.addFavoriteData2}
+                                auth={this.props.auth}
+                                logout={this.props.logout}/>
                             )
                         })}
                     </div>
@@ -180,7 +184,9 @@ class Mouse extends Component {
                                     results={item}
                                     key={item.tcin}
                                     addFavorites={this.props.addFavorites}
-                                    addFavoriteData3={this.addFavoriteData3}/>
+                                    addFavoriteData3={this.addFavoriteData3}
+                                    auth={this.props.auth}
+                                    logout={this.props.logout}/>
                             )
                         })}
                     </div>
