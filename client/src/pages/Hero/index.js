@@ -3,7 +3,7 @@ import React from "react";
 function Hero() {
     return (
         <div>
-            <div className="px-32 mt-20">
+            <div className="lg:px-32 pl-10 lg:mt-20 lg:mb-0 my-20">
                 <div className="flex">
                     <div className="w-1/2">
                         <div className="pt-4">
@@ -15,7 +15,7 @@ function Hero() {
                             </button>
                         </div>
                     </div>
-                    <div className="w-1/2">
+                    <div className="lg:w-1/2 hidden lg:flex">
                         <img src="devices.png" alt="devices"/>
                     </div>
                 </div>
