@@ -15,7 +15,7 @@ class WalmartCard extends Component {
     }
 
     onclick = () => {
-        this.props.addFavoriteData2(this.props.amazonResults.ASIN)
+        this.props.addFavoriteData(this.props.results.itemId)
         this.changeToActive()
     }
 

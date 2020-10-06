@@ -14,7 +14,7 @@ class TargetCard extends Component {
     }
 
     onclick = () => {
-        this.props.addFavoriteData2(this.props.amazonResults.ASIN)
+        this.props.addFavoriteData3(this.props.results.tcin)
         this.changeToActive()
     }
 
