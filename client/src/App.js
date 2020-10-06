@@ -88,7 +88,7 @@ class App extends Component {
                     <Route
                         path="/search"
                         render={() => (
-                            <Search auth={this.updateAuth} item={this.state.searchItem}/>
+                            <Search addFavorites={this.addFavorites} auth={this.updateAuth} item={this.state.searchItem}/>
                         )}/>
                     <Route exact path="/my-favorites" component={Favorites}/>
                     <Route exact path="/" component={Hero}/>
