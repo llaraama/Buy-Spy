@@ -48,7 +48,7 @@ class Desk extends Component {
         let currentUser=sessionStorage.getItem('id')
           let tempWalmartObj = {
           itemId: foundFav[0].itemId,
-          image: foundFav[0].largeImage,
+          image: foundFav[0].image,
           name: foundFav[0].name,
           salePrice: saleprice,
           productUrl: foundFav[0].productUrl,
@@ -57,6 +57,8 @@ class Desk extends Component {
         }
 
         // send OBJECT to backend route (server.js)
+        console.log("this is it")
+        console.log(tempWalmartObj)
         API.saveFavorites(tempWalmartObj)
             .then(res => {
                 console.log("Item Saved");
