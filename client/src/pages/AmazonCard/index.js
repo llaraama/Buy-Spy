@@ -19,7 +19,6 @@ class AmazonCard extends Component {
     }
 
     render() {
-        {console.log(this.props)}
         return (
             <div
                 className="mt-8 mx-5 w-full bg-white rounded max-w-xs shadow-lg select-none overflow-hidden"
