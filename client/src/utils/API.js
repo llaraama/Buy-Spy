@@ -3,7 +3,7 @@ const BASEURL = "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/
 const FORMAT = "&format=json"
  // api key is a placeholder to avoid access api calls
 //  walmart api
-const APIKEY = process.env.REACT_APP_WALMART_API_KEY;
+const APIKEY = "";
 const AMAZONURL = "https://amazon-price1.p.rapidapi.com/search"
 
 const URL = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=10&offset=0&store_id=3991&keyword="
@@ -25,7 +25,7 @@ export default {
                 "content-type":"application/octet-stream",
                 "x-rapidapi-host":"amazon-price1.p.rapidapi.com",
                 // placeholder for the amazon api
-                "x-rapidapi-key": process.env.REACT_APP_AMAZON_API_KEY,
+                "x-rapidapi-key": process.env.REACT_APP_TARGET_API_KEY,
                 "useQueryString":true
             },
             params: {
