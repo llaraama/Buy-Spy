@@ -51,7 +51,7 @@ function Navbar(props) {
                         Favorites
                     </Link>
                     <i className={location.pathname === "/my-favorites" ? "fas fa-heart text-primary" : "fas fa-heart text-teal-400 text-teal-400"}></i>
-                    <span className={location.pathname === "/my-favorites" ? "text-primary" : "text-teal-400"}>0</span>
+                    <span className={location.pathname === "/my-favorites" ? "text-primary" : "text-teal-400"}>{props.favorites}</span>
                     <a href="/">
                         <i className="fas fa-sign-out-alt text-primary cursor-pointer ml-4 text-2xl" onClick={props.logout}></i>
                     </a>

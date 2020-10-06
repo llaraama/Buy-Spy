@@ -30,7 +30,8 @@ class AmazonCard extends Component {
                             <div className={this.state.active ? "flex justify-end text-primary" : "flex justify-end text-teal-400"}
                                  onClick={() => this.props.addFavorites(this.props.amazonResults.asin)}>
                                 <i id="heart" onClick={this.onclick}
-                                   className="fas fa-heart"></i>
+                                   className="fas fa-heart">
+                                </i>
                             </div>
                         </div>
                     </div>
