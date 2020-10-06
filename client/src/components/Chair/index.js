@@ -49,7 +49,7 @@ class Chair extends Component {
         let currentUser=sessionStorage.getItem('id')
         let tempWalmartObj = {
         itemId: foundFav[0].itemId,
-        image: foundFav[0].largeImage,
+        image: foundFav[0].image,
         name: foundFav[0].name,
         salePrice: saleprice,
         productUrl: foundFav[0].productUrl,
