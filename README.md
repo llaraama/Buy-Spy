@@ -27,6 +27,9 @@ Coming soon ...
   ## Installation 
   Clone this repo to your local machine using https://github.com/llaraama/Buy-Spy.git
   
+  ## Usage
+  
+  
   ## Credits
   * Laura Lara: https://github.com/llaraama
   * Jessica Moran: https://github.com/JessMoran
