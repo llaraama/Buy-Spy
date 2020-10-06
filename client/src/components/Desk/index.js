@@ -17,7 +17,7 @@ class Desk extends Component {
         targetResults: []
     };
 
-    // When this component mounts, search for the item "desk"
+    // When this component mounts, Search for the item "desk"
     componentDidMount() {
         this.searchItems("desk");
         this.searchAmazon("desk");
@@ -94,6 +94,7 @@ class Desk extends Component {
                 console.log(err);
             });
     }
+
     addFavoriteData3 = id => {
         let foundFavTarget = this.state.targetResults.filter(item => {
             // logic to match item ID
@@ -148,7 +149,9 @@ class Desk extends Component {
         return (
             <div className="text-center mb-32">
                 <Menu auth={this.props.auth}
-                      logout={this.props.logout}/>
+                      logout={this.props.logout}
+                      getItemSearch={this.props.getItemSearch}
+                />
                 <main className="mt-5 flex flex-wrap">
                     <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.results.map(item => {

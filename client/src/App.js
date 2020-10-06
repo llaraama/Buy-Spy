@@ -6,6 +6,7 @@ import Laptop from "./components/Laptop";
 import Mouse from "./components/Mouse";
 import Keyboard from "./components/Keyboard";
 import Chair from "./components/Chair";
+import Search from "./components/Search";
 import Hero from "./pages/Hero";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -16,6 +17,7 @@ class App extends Component {
     state = {
         favorites: 0,
         userAuth: false,
+        searchItem: ""
     };
 
     addFavorites = id => {
@@ -34,6 +36,10 @@ class App extends Component {
         sessionStorage.setItem('id', "")
     }
 
+    getItemSearch = (search) => {
+        this.setState({searchItem: search})
+    }
+
     render() {
         return (
             <Router>
@@ -42,31 +48,31 @@ class App extends Component {
                     <Route
                         path='/desk'
                         render={() => (
-                            <Desk addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
+                            <Desk addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout} getItemSearch={this.getItemSearch}/>
                         )}
                     />
                     <Route
                         path='/laptop'
                         render={() => (
-                            <Laptop addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
+                            <Laptop addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout} getItemSearch={this.getItemSearch}/>
                         )}
                     />
                     <Route
                         path='/mouse'
                         render={() => (
-                            <Mouse addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
+                            <Mouse addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout} getItemSearch={this.getItemSearch}/>
                         )}
                     />
                     <Route
                         path='/keyboard'
                         render={() => (
-                            <Keyboard addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
+                            <Keyboard addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout} getItemSearch={this.getItemSearch}/>
                         )}
                     />
                     <Route
                         path='/chair'
                         render={() => (
-                            <Chair addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout}/>
+                            <Chair addFavorites={this.addFavorites} auth={this.state.userAuth} logout={this.logout} getItemSearch={this.getItemSearch}/>
                         )}
                     />
                     <Route 
@@ -78,6 +84,11 @@ class App extends Component {
                         path="/signup"
                         render={() => (
                             <Signup auth={this.updateAuth}/>
+                        )}/>
+                    <Route
+                        path="/search"
+                        render={() => (
+                            <Search auth={this.updateAuth} item={this.state.searchItem}/>
                         )}/>
                     <Route exact path="/my-favorites" component={Favorites}/>
                     <Route exact path="/" component={Hero}/>

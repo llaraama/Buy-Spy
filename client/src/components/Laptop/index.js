@@ -17,7 +17,7 @@ class Laptop extends Component {
         targetResults: []
     };
 
-    // When this component mounts, search for the item "laptop"
+    // When this component mounts, Search for the item "laptop"
     componentDidMount() {
         this.searchItems("laptop");
         this.searchAmazon("laptop");
@@ -148,7 +148,9 @@ class Laptop extends Component {
         return (
             <div className="text-center mb-32">
                 <Menu auth={this.props.auth}
-                      logout={this.props.logout}/>
+                      logout={this.props.logout}
+                      getItemSearch={this.props.getItemSearch}
+                />
                 <main className="mt-5 flex flex-wrap">
                     <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.results.map(item => {
