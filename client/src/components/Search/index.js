@@ -19,9 +19,7 @@ class Search extends Component {
     };
     // When this component mounts, Search for the item
     componentDidMount() {
-        console.log(this.props.item, "aqui")
         let searchItem =  this.props.item
-        console.log(searchItem, "aqui sí")
         this.searchItems(searchItem);
         this.searchAmazon(searchItem);
         this.targetSearchItems(searchItem);
