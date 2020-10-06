@@ -28,7 +28,7 @@ Coming soon ...
   Clone this repo to your local machine using https://github.com/llaraama/Buy-Spy.git
   
   ## Usage
-  
+  ![image](https://user-images.githubusercontent.com/62354759/95265552-6788b700-07ff-11eb-8b56-3b4c572a3041.png)
   
   ## Credits
   * Laura Lara: https://github.com/llaraama
