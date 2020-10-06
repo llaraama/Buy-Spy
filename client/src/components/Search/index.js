@@ -8,6 +8,7 @@ import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
 import Navbar from "../Navbar";
+import WalmartAPI from "../../mug.json"
 
 class Search extends Component {
     state = {
@@ -15,17 +16,19 @@ class Search extends Component {
         amazonResults: [],
         favs: [],
         targetResults: [],
-        item: "",
     };
     // When this component mounts, Search for the item
     componentDidMount() {
-        this.setItem()
+        console.log(this.props.item, "aqui")
+        let searchItem =  this.props.item
+        console.log(searchItem, "aqui sí")
+        this.searchItems(searchItem);
+        this.searchAmazon(searchItem);
+        this.targetSearchItems(searchItem);
     }
 
-    searchItems = query => {
-        API.searchItems(query)
-            .then(res => this.setState({results: res.data.items}))
-            .catch(err => console.log(err));
+    searchItems = () => {
+        this.setState({results:WalmartAPI})
     };
 
     searchAmazon = keyword => {
@@ -136,17 +139,6 @@ class Search extends Component {
             return item
         })
         this.setState({targetResults: newData})
-    }
-
-    setItem = () => {
-        console.log("hola aquí")
-        this.setState( {item : this.props.item})
-
-        let item = this.state.item
-
-        this.searchItems(item);
-        this.searchAmazon(item);
-        this.targetSearchItems(item);
     }
 
     render() {
