@@ -7,6 +7,7 @@ import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
+import WalmartAPI from "../../chair.json"
 import Navbar from "../Navbar";
 
 class Chair extends Component {
@@ -24,10 +25,8 @@ class Chair extends Component {
         this.targetSearchItems("chair");
     }
 
-    searchItems = query => {
-        API.searchItems(query)
-            .then(res => this.setState({results: res.data.items}))
-            .catch(err => console.log(err));
+    searchItems = () => {
+        this.setState({results:WalmartAPI})
     };
 
     searchAmazon = keyword => {

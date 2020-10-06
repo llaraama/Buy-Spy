@@ -7,6 +7,7 @@ import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
+import WalmartAPI from "../../desk.json"
 
 class Desk extends Component {
     state = {
@@ -23,10 +24,8 @@ class Desk extends Component {
         this.targetSearchItems("desk");
     }
 
-    searchItems = query => {
-        API.searchItems(query)
-            .then(res => this.setState({results: res.data.items}))
-            .catch(err => console.log(err));
+    searchItems = () => {
+        this.setState({results:WalmartAPI})
     };
 
     searchAmazon = keyword => {

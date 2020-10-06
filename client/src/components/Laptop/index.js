@@ -7,6 +7,7 @@ import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
+import WalmartAPI from "../../laptop.json"
 
 class Laptop extends Component {
     state = {
@@ -23,10 +24,8 @@ class Laptop extends Component {
         this.targetSearchItems("laptop");
     }
 
-    searchItems = query => {
-        API.searchItems(query)
-            .then(res => this.setState({results: res.data.items}))
-            .catch(err => console.log(err));
+    searchItems = () => {
+        this.setState({results:WalmartAPI})
     };
 
     searchAmazon = keyword => {
@@ -50,7 +49,7 @@ class Laptop extends Component {
         let currentUser=sessionStorage.getItem('id')
         let tempWalmartObj = {
         itemId: foundFav[0].itemId,
-        image: foundFav[0].largeImage,
+        image: foundFav.image,
         name: foundFav[0].name,
         salePrice: saleprice,
         productUrl: foundFav[0].productUrl,

@@ -7,6 +7,7 @@ import TargetCard from "../../pages/TargetCard";
 import AmazonLogo from "../../amazon.png"
 import WalmartLogo from "../../walmart.png"
 import TargetLogo from "../../target.png"
+import WalmartAPI from "../../keyboard.json"
 
 class Keyboard extends Component {
     state = {
@@ -24,10 +25,8 @@ class Keyboard extends Component {
     }
 
     // When this component mounts, search for the item "keyboard"
-    searchItems = query => {
-        API.searchItems(query)
-            .then(res => this.setState({results: res.data.items}))
-            .catch(err => console.log(err));
+    searchItems = () => {
+        this.setState({results:WalmartAPI})
     };
 
     searchAmazon = keyword => {
