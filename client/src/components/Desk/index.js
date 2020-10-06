@@ -146,7 +146,8 @@ class Desk extends Component {
     render() {
         return (
             <div className="text-center mb-32">
-                <Menu/>
+                <Menu auth={this.props.auth}
+                      logout={this.props.logout}/>
                 <main className="mt-5 flex flex-wrap">
                     <div className="flex flex-wrap justify-center w-1/3">
                         {this.state.results.map(item => {

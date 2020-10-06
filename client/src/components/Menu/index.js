@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, useLocation} from "react-router-dom";
 
-function Menu() {
+function Menu(props) {
     const location = useLocation();
 
     return (
@@ -61,6 +61,13 @@ function Menu() {
                     </div>
                 </div>
             </main>
+            <div
+                className={props.auth ? "hidden" : "p-2 items-center bg-indigo-800 text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex mt-12"}
+                role="alert">
+                <span
+                    className="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Join us!</span>
+                <span className="font-semibold mr-2 text-left flex-auto">If you would like to add a favorites list please login or signup</span>
+            </div>
         </div>
 
     );

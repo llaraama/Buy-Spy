@@ -19,7 +19,7 @@ function Signup(props) {
           sessionStorage.setItem('auth', true)
           sessionStorage.setItem('id', JSON.stringify(res.data._id))
           props.auth()
-          history.push("/my-favorites")
+          history.push("/")
       })
       .catch(err => console.log(err));
     };

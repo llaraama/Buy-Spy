@@ -53,7 +53,7 @@ function Navbar(props) {
                     <i className={location.pathname === "/my-favorites" ? "fas fa-heart text-primary" : "fas fa-heart text-teal-400 text-teal-400"}></i>
                     <span className={location.pathname === "/my-favorites" ? "text-primary" : "text-teal-400"}>0</span>
                     <a href="/">
-                        <i className="fas fa-sign-out-alt text-primary cursor-pointer ml-4" onClick={props.logout}></i>
+                        <i className="fas fa-sign-out-alt text-primary cursor-pointer ml-4 text-2xl" onClick={props.logout}></i>
                     </a>
                 </div>
                 <div className={props.auth ? "hidden" : "flex"}>
