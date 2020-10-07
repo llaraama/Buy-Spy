@@ -21,7 +21,7 @@ With recent world events keeping everybody at home the home office is seeing a r
   * [Technology](#Technology)
   
   ## Description
-  An application that allows users to search office furniture and accessories across multiple different vendors to compare prices.
+  A MERN application that allows users to search office furniture and accessories across multiple different vendors to compare prices.
   
   ## User Story
  Are you trying to set up your perfect work from home office? But tired of scouring the web to find the best deals? Buy  Spy solves that problem by using the Amazon, Walmart and Target APIs to query popular shopping sites and allows you to compare prices between vendors to find the best deal.
